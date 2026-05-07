@@ -137,7 +137,9 @@ function handleSubmit(e) {
         reply_to: d.from_email
     };
 
-    emailjs.send('service_4byksa2', 'template_hmvbvfs', templateParams)
+    emailjs.send('service_4byksa2', 'template_hmvbvfs', templateParams, {
+        reply_to: d.from_email
+    })
         .then(function(response) {
             // Success
             btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
