@@ -1,5 +1,5 @@
 // ============================================
-// YASHENG FRP - JavaScript v2
+// YASHENG FRP - JavaScript v4 (EmailJS)
 // ============================================
 
 // --- Mobile Menu ---
@@ -33,7 +33,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// --- Active nav link ---
+// --- Active nav link on scroll ---
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 window.addEventListener('scroll', () => {
@@ -47,93 +47,160 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// --- Counter animation ---
+// --- Counter animation for hero stats ---
 function animateCounters() {
-    document.querySelectorAll('.stat-num').forEach(el => {
-        const target = parseInt(el.dataset.target);
-        const suffix = el.nextElementSibling?.classList.contains('stat-suffix') ? el.nextElementSibling.textContent : '';
+    const statEls = document.querySelectorAll('.stat-num');
+    statEls.forEach(el => {
+        const text = el.textContent;
+        const match = text.match(/(\d+)/);
+        if (!match) return;
+        const target = parseInt(match[1]);
         let current = 0;
         const step = Math.ceil(target / 40);
+        const suffix = text.replace(/\d+/, '');
         const timer = setInterval(() => {
             current += step;
-            if (current >= target) { current = target; clearInterval(timer); }
-            el.textContent = current;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = current + suffix;
         }, 40);
     });
 }
-const heroObs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { animateCounters(); heroObs.unobserve(e.target); } });
-}, { threshold: 0.3 });
-const heroEl = document.querySelector('.hero-stats');
-if (heroEl) heroObs.observe(heroEl);
 
-// --- Inquiry Form ---
+const heroObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            animateCounters();
+            heroObs.unobserve(e.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) heroObs.observe(heroStats);
+
+// --- EmailJS Inquiry Form Submission ---
 function handleSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('inquiryForm');
-    const btn = form.querySelector('.btn-submit');
-    const success = document.getElementById('formSuccess');
+    if (!form) return;
 
+    const btn = document.getElementById('submitBtn');
+    const formMessage = document.getElementById('formMessage');
+    const formSuccess = document.getElementById('formSuccess');
+
+    // Gather form data
     const d = {
-        name: document.getElementById('name').value,
-        company: document.getElementById('company').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
+        from_name: document.getElementById('name').value.trim(),
+        company: document.getElementById('company').value.trim() || 'N/A',
+        from_email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim() || 'N/A',
         product: document.getElementById('product').value,
-        quantity: document.getElementById('quantity').value,
-        message: document.getElementById('message').value
+        quantity: document.getElementById('quantity').value.trim() || 'N/A',
+        message: document.getElementById('message').value.trim()
     };
 
-    if (!d.name || !d.email || !d.product || !d.message) {
-        alert('Please fill in all required fields (*)');
+    // Validation
+    const missing = [];
+    if (!d.from_name) missing.push('Full Name');
+    if (!d.from_email) missing.push('Email');
+    if (!d.product) missing.push('Product');
+    if (!d.message) missing.push('Message');
+
+    if (missing.length > 0) {
+        showMessage('Please fill in: ' + missing.join(', '), 'error');
         return;
     }
 
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.from_email)) {
+        showMessage('Please enter a valid email address.', 'error');
+        return;
+    }
+
+    // Show loading state
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
-    const msg = encodeURIComponent(
-        `Inquiry from Website\n` +
-        `-------------------\n` +
-        `Name: ${d.name}\n` +
-        `Company: ${d.company || 'N/A'}\n` +
-        `Email: ${d.email}\n` +
-        `Phone: ${d.phone || 'N/A'}\n` +
-        `Product: ${d.product}\n` +
-        `Quantity: ${d.quantity || 'N/A'}\n` +
-        `-------------------\n` +
-        `Message:\n${d.message}`
-    );
+    // Send via EmailJS
+    // Service ID: service_4byksa2
+    // Template ID: template_hmvbvfs
+    const templateParams = {
+        from_name: d.from_name,
+        company: d.company,
+        from_email: d.from_email,
+        phone: d.phone,
+        product: d.product,
+        quantity: d.quantity,
+        message: d.message,
+        reply_to: d.from_email
+    };
 
-    setTimeout(() => {
-        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-        btn.style.background = '#27ae60';
-        btn.style.borderColor = '#27ae60';
-        form.style.display = 'none';
-        success.style.display = 'block';
-        setTimeout(() => window.open(`https://wa.me/8619867335803?text=${msg}`, '_blank'), 800);
-    }, 1200);
+    emailjs.send('service_4byksa2', 'template_hmvbvfs', templateParams)
+        .then(function(response) {
+            // Success
+            btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+            btn.style.background = '#27ae60';
+            btn.style.borderColor = '#27ae60';
+            form.style.display = 'none';
+            if (formMessage) formMessage.style.display = 'none';
+            if (formSuccess) {
+                formSuccess.style.display = 'block';
+            }
+        }, function(error) {
+            // Error
+            console.error('EmailJS Error:', error);
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
+            btn.disabled = false;
+            showMessage('Failed to send. Please email us directly: serafinalin091@gmail.com', 'error');
+        });
 }
 
-// --- Scroll animations ---
-const animObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('animate-in'); animObs.unobserve(e.target); }
+function showMessage(text, type) {
+    const msgEl = document.getElementById('formMessage');
+    if (!msgEl) return;
+    msgEl.textContent = text;
+    msgEl.style.display = 'block';
+    msgEl.style.cssText = type === 'error'
+        ? 'background:#fff2f2;border:1px solid #ffcdd2;color:#c62828;padding:14px 18px;border-radius:10px;margin-top:12px;font-size:14px;'
+        : 'background:#e8f5e9;border:1px solid #c8e6c9;color:#2e7d32;padding:14px 18px;border-radius:10px;margin-top:12px;font-size:14px;';
+
+    if (type === 'error') {
+        setTimeout(() => { msgEl.style.display = 'none'; }, 6000);
+    }
+}
+
+// --- Scroll reveal animations ---
+(function initScrollAnimations() {
+    const animObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                animObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    const targets = ['.product-card', '.why-card', '.step', '.af-item', '.av-card'];
+
+    targets.forEach(selector => {
+        document.querySelectorAll(selector).forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+            animObs.observe(el);
+        });
     });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.product-card, .why-card, .step, .af-item, .about-gallery, .cta-banner').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(24px)';
-    el.style.transition = `opacity 0.6s ease ${i * 0.06}s, transform 0.6s ease ${i * 0.06}s`;
-    animObs.observe(el);
-});
+    const style = document.createElement('style');
+    style.textContent = '.animate-in { opacity: 1 !important; transform: translateY(0) !important; }';
+    document.head.appendChild(style);
+})();
 
-const animStyle = document.createElement('style');
-animStyle.textContent = '.animate-in { opacity: 1 !important; transform: translateY(0) !important; }';
-document.head.appendChild(animStyle);
-
-// --- Keyboard ---
+// --- Keyboard accessibility ---
 document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelector('.nav-links')?.classList.remove('active');
+    if (e.key === 'Escape') {
+        document.querySelector('.nav-links')?.classList.remove('active');
+    }
 });
