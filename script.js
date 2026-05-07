@@ -142,7 +142,7 @@ function handleSubmit(e) {
     })
         .then(function(response) {
             // Success
-            btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+            btn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
             btn.style.background = '#27ae60';
             btn.style.borderColor = '#27ae60';
             form.style.display = 'none';
@@ -150,6 +150,8 @@ function handleSubmit(e) {
             if (formSuccess) {
                 formSuccess.style.display = 'block';
             }
+            // Show browser alert for confirmation
+            alert('Email sent successfully! We will reply within 2 hours. Thank you!');
         }, function(error) {
             // Error
             console.error('EmailJS Error:', error);
