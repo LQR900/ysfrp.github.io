@@ -1,1323 +1,526 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>SEN Automation | CNC Machining & 3D Printing Precision Parts</title>
-<meta name="description" content="Professional CNC precision machining and 3D printing services. Custom 5-axis parts, rapid prototyping, OEM/ODM for automation, medical & robotics. Fast delivery, global shipping.">
- <meta name="keywords" content="CNC machining, precision parts, automation equipment, 5-axis machining, OEM manufacturer, China factory, medical parts, robot parts">
- <style>
- /* ===== RESET & BASE ===== */
- *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
- html { scroll-behavior: smooth; font-size: 16px; }
- body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a2332; background: #fff; overflow-x: hidden; }
- a { text-decoration: none; color: inherit; }
- img { max-width: 100%; display: block; }
-
- /* ===== CUSTOM SCROLLBAR ===== */
- ::-webkit-scrollbar { width: 6px; }
- ::-webkit-scrollbar-track { background: #0a1628; }
- ::-webkit-scrollbar-thumb { background: #f5a623; border-radius: 3px; }
-
- /* ===== NAV ===== */
- nav {
- position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
- background: rgba(8, 20, 40, 0.96);
- backdrop-filter: blur(12px);
- -webkit-backdrop-filter: blur(12px);
- border-bottom: 1px solid rgba(245,166,35,0.15);
- display: flex; align-items: center; justify-content: space-between;
- padding: 0 5%; height: 68px;
- transition: all .3s;
- }
- .nav-logo {
- display: flex; align-items: center; gap: 10px;
- color: #fff; font-size: 1.35rem; font-weight: 800; letter-spacing: 1px;
- }
- .nav-logo-icon {
- width: 36px; height: 36px; background: linear-gradient(135deg,#f5a623,#e07b00);
- border-radius: 6px; display: flex; align-items: center; justify-content: center;
- font-size: 1.1rem;
- }
- .nav-logo span { color: #f5a623; }
- .nav-links { display: flex; align-items: center; gap: 32px; }
- .nav-links a { color: #b0c4d8; font-size: 0.9rem; font-weight: 500; transition: color .2s; position: relative; }
- .nav-links a::after {
- content:''; position:absolute; bottom:-4px; left:0; right:0; height:2px;
- background:#f5a623; transform:scaleX(0); transition:transform .2s;
- }
- .nav-links a:hover { color: #fff; }
- .nav-links a:hover::after { transform: scaleX(1); }
- .nav-cta {
- background: linear-gradient(135deg,#f5a623,#e09510);
- color: #0a1628 !important; padding: 9px 22px; border-radius: 5px;
- font-weight: 700 !important; font-size: 0.88rem !important;
- box-shadow: 0 4px 16px rgba(245,166,35,0.35);
- transition: transform .15s, box-shadow .15s !important;
- }
- .nav-cta::after { display: none !important; }
- .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(245,166,35,0.5) !important; }
-
- /* ===== HERO ===== */
- .hero {
- position: relative; min-height: 100vh;
- display: flex; align-items: center;
- overflow: hidden;
- }
- .hero-bg {
- position: absolute; inset: 0;
- background-image: url('https://sc02.alicdn.com/kf/A7805706333e84a05a6bd5afe660e42eck.png');
- background-size: cover; background-position: center;
- filter: brightness(0.35);
- }
- .hero-overlay {
- position: absolute; inset: 0;
- background: linear-gradient(105deg, rgba(5,15,35,0.92) 0%, rgba(5,15,35,0.6) 55%, rgba(5,15,35,0.2) 100%);
- }
- .hero-content {
- position: relative; z-index: 2;
- padding: 120px 6% 80px;
- max-width: 780px;
- }
- .hero-badge {
- display: inline-flex; align-items: center; gap: 8px;
- background: rgba(245,166,35,0.15);
- border: 1px solid rgba(245,166,35,0.5);
- color: #f5a623; padding: 6px 18px; border-radius: 20px;
- font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
- margin-bottom: 28px;
- animation: fadeInDown .6s ease both;
- }
- .hero-badge::before { content: '●'; font-size: 0.5rem; animation: pulse 1.5s infinite; }
- @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
- @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
- @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
- @keyframes fadeIn { from{opacity:0} to{opacity:1} }
- .hero h1 {
- font-size: clamp(2.2rem, 4.5vw, 3.6rem);
- line-height: 1.15; font-weight: 900; color: #fff;
- margin-bottom: 22px;
- animation: fadeInUp .7s .1s ease both;
- }
- .hero h1 .highlight {
- color: #f5a623;
- text-shadow: 0 0 40px rgba(245,166,35,0.4);
- }
- .hero-sub {
- font-size: 1.08rem; color: #8faec8; line-height: 1.8;
- max-width: 620px; margin-bottom: 40px;
- animation: fadeInUp .7s .2s ease both;
- }
- .hero-sub strong { color: #c8dcea; }
- .hero-btns {
- display: flex; gap: 16px; flex-wrap: wrap;
- animation: fadeInUp .7s .3s ease both;
- }
- .btn-gold {
- background: linear-gradient(135deg,#f5a623,#e09510);
- color: #0a1628; padding: 15px 36px; border-radius: 5px;
- font-weight: 800; font-size: 1rem;
- box-shadow: 0 6px 24px rgba(245,166,35,0.4);
- transition: transform .15s, box-shadow .15s;
- display: inline-flex; align-items: center; gap: 8px;
- }
- .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(245,166,35,0.55); }
- .btn-outline {
- border: 2px solid rgba(255,255,255,0.35); color: #fff;
- padding: 15px 36px; border-radius: 5px;
- font-weight: 600; font-size: 1rem;
- transition: all .2s;
- display: inline-flex; align-items: center; gap: 8px;
- }
- .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
- .hero-trust {
- display: flex; align-items: center; gap: 20px; margin-top: 40px;
- animation: fadeIn .8s .5s ease both;
- }
- .trust-avatars { display: flex; }
- .trust-avatars span {
- width: 36px; height: 36px; border-radius: 50%;
- border: 2px solid #0a1628; background: linear-gradient(135deg,#f5a623,#0a6fb5);
- display: inline-flex; align-items: center; justify-content: center;
- font-size: 0.7rem; color: #fff; font-weight: 700;
- margin-left: -10px;
- }
- .trust-avatars span:first-child { margin-left: 0; }
- .trust-text { color: #8faec8; font-size: 0.85rem; line-height: 1.4; }
- .trust-text strong { color: #f5a623; }
- .hero-scroll {
- position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
- display: flex; flex-direction: column; align-items: center; gap: 8px;
- color: rgba(255,255,255,0.4); font-size: 0.75rem; letter-spacing: 1px;
- animation: fadeIn 1s 1s ease both;
- }
- .scroll-line {
- width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
- animation: scrollAnim 1.5s infinite;
- }
- @keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform:scaleY(1);transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
-
- /* ===== DATA STRIP ===== */
- .data-strip {
- background: linear-gradient(90deg, #0a1628 0%, #0d2a52 50%, #0a1628 100%);
- border-top: 1px solid rgba(245,166,35,0.2);
- border-bottom: 1px solid rgba(245,166,35,0.2);
- }
- .data-strip-inner {
- display: flex; justify-content: center; flex-wrap: wrap;
- max-width: 1200px; margin: 0 auto;
- }
- .data-item {
- flex: 1; min-width: 150px; text-align: center;
- padding: 28px 16px;
- border-right: 1px solid rgba(255,255,255,0.07);
- position: relative; overflow: hidden;
- transition: background .3s;
- }
- .data-item:last-child { border-right: none; }
- .data-item:hover { background: rgba(245,166,35,0.05); }
- .data-num {
- font-size: 2rem; font-weight: 900; line-height: 1;
- background: linear-gradient(135deg,#f5a623,#ffd070);
- -webkit-background-clip: text; -webkit-text-fill-color: transparent;
- margin-bottom: 6px;
- }
- .data-label { font-size: 0.8rem; color: #6a8aaa; font-weight: 500; }
-
- /* ===== SECTION COMMON ===== */
- section { padding: 88px 5%; }
- .section-tag {
- display: inline-block; color: #f5a623; font-size: 0.78rem;
- font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
- margin-bottom: 12px;
- }
- .section-title { font-size: clamp(1.7rem, 3vw, 2.5rem); color: #0a1628; font-weight: 800; line-height: 1.2; margin-bottom: 14px; }
- .section-sub { color: #6a7f99; line-height: 1.75; max-width: 600px; }
- .section-header { text-align: center; margin-bottom: 60px; }
- .section-header .section-sub { margin: 0 auto; }
-
- /* ===== PRODUCTS ===== */
- #products { background: #f5f7fa; }
- .products-grid {
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 24px; max-width: 1200px; margin: 0 auto;
- }
- .product-card {
- background: #fff; border-radius: 10px;
- overflow: hidden; position: relative;
- box-shadow: 0 2px 20px rgba(0,0,0,0.06);
- transition: transform .3s, box-shadow .3s;
- cursor: pointer;
- }
- .product-card:hover { transform: translateY(-8px); box-shadow: 0 16px 48px rgba(0,0,0,0.14); }
- .product-card:hover .product-img img { transform: scale(1.07); }
- .product-img { height: 200px; overflow: hidden; position: relative; }
- .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
- .product-img-overlay {
- position: absolute; inset: 0;
- background: linear-gradient(to top, rgba(5,15,35,0.6) 0%, transparent 60%);
- }
- .product-badge {
- position: absolute; top: 12px; right: 12px;
- background: linear-gradient(135deg,#f5a623,#e09510);
- color: #0a1628; padding: 3px 10px; border-radius: 3px;
- font-size: 0.72rem; font-weight: 700;
- }
- .product-body { padding: 22px 22px 24px; }
- .product-body h3 { font-size: 1rem; color: #0a1628; font-weight: 700; margin-bottom: 8px; }
- .product-body p { font-size: 0.85rem; color: #6a7f99; line-height: 1.65; margin-bottom: 16px; }
- .product-meta {
- display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
- }
- .meta-tag {
- background: #f0f4f8; color: #4a6080; padding: 4px 10px;
- border-radius: 3px; font-size: 0.75rem; font-weight: 600;
- }
- .meta-tag.gold { background: rgba(245,166,35,0.12); color: #b07500; }
- .product-cta {
- display: inline-flex; align-items: center; gap: 6px;
- color: #0a6fb5; font-size: 0.85rem; font-weight: 700;
- transition: gap .2s;
- }
- .product-card:hover .product-cta { gap: 10px; }
-
- /* ===== CNC SECTION ===== */
- #cnc {
- background: #0a1628;
- position: relative;
- overflow: hidden;
- }
- #cnc::before {
- content: '';
- position: absolute;
- top: -100px; left: -100px;
- width: 500px; height: 500px;
- background: radial-gradient(circle, rgba(245,166,35,0.05), transparent 70%);
- pointer-events: none;
- }
- .cnc-header {
- text-align: center;
- max-width: 800px;
- margin: 0 auto 56px;
- }
- .cnc-header .section-tag { display: block; margin-bottom: 16px; }
- .cnc-header h2 { color: #fff; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 16px; line-height: 1.2; }
- .cnc-header p { color: #7a9ab8; font-size: 1.05rem; line-height: 1.75; }
- .cnc-highlight {
- background: rgba(245,166,35,0.08);
- border: 1px solid rgba(245,166,35,0.2);
- border-radius: 12px;
- padding: 16px 24px;
- margin-top: 20px;
- display: inline-block;
- }
- .cnc-highlight span {
- color: #f5a623;
- font-weight: 700;
- font-size: 0.88rem;
- }
- /* Capabilities grid */
- .cnc-cap-grid {
- display: grid;
- grid-template-columns: repeat(3, 1fr);
- gap: 20px;
- max-width: 1100px;
- margin: 0 auto 48px;
- }
- .cnc-cap-card {
- background: rgba(255,255,255,0.04);
- border: 1px solid rgba(255,255,255,0.07);
- border-radius: 12px;
- padding: 24px 20px;
- text-align: center;
- transition: all .3s;
- }
- .cnc-cap-card:hover {
- background: rgba(245,166,35,0.08);
- border-color: rgba(245,166,35,0.25);
- transform: translateY(-4px);
- }
- .cnc-cap-icon { font-size: 2rem; margin-bottom: 12px; }
- .cnc-cap-title { font-size: 0.9rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
- .cnc-cap-desc { font-size: 0.8rem; color: #6a8aaa; line-height: 1.5; }
- /* Materials row */
- .cnc-materials-row {
- display: flex;
- justify-content: center;
- flex-wrap: wrap;
- gap: 12px;
- max-width: 900px;
- margin: 0 auto 32px;
- }
- .mat-chip {
- background: rgba(255,255,255,0.05);
- border: 1px solid rgba(255,255,255,0.1);
- color: #aac4e0;
- padding: 7px 18px;
- border-radius: 50px;
- font-size: 0.82rem;
- font-weight: 500;
- transition: all .2s;
- }
- .mat-chip:hover {
- background: rgba(245,166,35,0.12);
- border-color: rgba(245,166,35,0.3);
- color: #f5a623;
- }
- .cnc-divider {
- max-width: 200px;
- margin: 0 auto 32px;
- text-align: center;
- }
- .cnc-divider hr {
- border: none;
- border-top: 1px solid rgba(245,166,35,0.2);
- }
- /* Post-processing row */
- .cnc-post-label {
- text-align: center;
- font-size: 0.78rem;
- font-weight: 700;
- letter-spacing: 2px;
- text-transform: uppercase;
- color: rgba(245,166,35,0.7);
- margin-bottom: 16px;
- }
- .cnc-post-row {
- display: flex;
- justify-content: center;
- flex-wrap: wrap;
- gap: 12px;
- max-width: 900px;
- margin: 0 auto 40px;
- }
- .post-chip {
- background: rgba(10,111,181,0.15);
- border: 1px solid rgba(10,111,181,0.3);
- color: #60a5fa;
- padding: 7px 18px;
- border-radius: 50px;
- font-size: 0.82rem;
- font-weight: 600;
- transition: all .2s;
- }
- .post-chip:hover {
- background: rgba(10,111,181,0.25);
- border-color: rgba(10,111,181,0.5);
- }
- /* CNC CTA */
- .cnc-cta-row {
- text-align: center;
- margin-top: 12px;
- }
- .cnc-cta-row a {
- display: inline-flex;
- align-items: center;
- gap: 8px;
- background: linear-gradient(135deg,#f5a623,#e09510);
- color: #0a1628;
- padding: 14px 36px;
- border-radius: 8px;
- font-weight: 800;
- font-size: 1rem;
- box-shadow: 0 4px 20px rgba(245,166,35,0.4);
- transition: all .2s;
- text-decoration: none;
- }
- .cnc-cta-row a:hover {
- transform: translateY(-2px);
- box-shadow: 0 8px 30px rgba(245,166,35,0.55);
- }
- .cnc-note {
- text-align: center;
- color: #4a6a8a;
- font-size: 0.82rem;
- margin-top: 14px;
- }
-
- /* ===== FACTORY ADVANTAGE ===== */
- #factory {
- background: #0a1628;
- position: relative; overflow: hidden;
- }
- #factory::before {
- content: ''; position: absolute;
- top: -200px; right: -200px;
- width: 600px; height: 600px;
- background: radial-gradient(circle, rgba(245,166,35,0.06), transparent 70%);
- pointer-events: none;
- }
- .factory-wrap {
- display: grid; grid-template-columns: 1fr 1fr;
- gap: 64px; max-width: 1200px; margin: 0 auto;
- align-items: center;
- }
- .factory-img-wrap { position: relative; border-radius: 12px; overflow: hidden; }
- .factory-img-wrap img { width: 100%; border-radius: 12px; }
- .factory-img-overlay {
- position: absolute; inset: 0;
- background: linear-gradient(135deg, rgba(245,166,35,0.15), transparent);
- border-radius: 12px;
- }
- .factory-img-badge {
- position: absolute; bottom: -1px; left: -1px; right: -1px;
- background: linear-gradient(to top, rgba(5,15,35,0.95), transparent);
- padding: 32px 24px 20px;
- border-radius: 0 0 12px 12px;
- }
- .factory-img-badge p { color: #aac4e0; font-size: 0.88rem; }
- .factory-img-badge strong { color: #f5a623; font-size: 1.1rem; display: block; margin-bottom: 4px; }
- .factory-content .section-tag { display: block; }
- .factory-content .section-title { color: #fff; margin-bottom: 16px; }
- .factory-content .section-sub { color: #7a9ab8; margin-bottom: 40px; }
- .advantage-list { display: flex; flex-direction: column; gap: 20px; }
- .advantage-item {
- display: flex; gap: 18px; align-items: flex-start;
- padding: 20px; border-radius: 8px;
- background: rgba(255,255,255,0.04);
- border: 1px solid rgba(255,255,255,0.07);
- transition: background .3s, border-color .3s;
- }
- .advantage-item:hover { background: rgba(245,166,35,0.07); border-color: rgba(245,166,35,0.25); }
- .adv-icon {
- width: 44px; height: 44px; flex-shrink: 0;
- background: linear-gradient(135deg, rgba(245,166,35,0.2), rgba(245,166,35,0.05));
- border: 1px solid rgba(245,166,35,0.3);
- border-radius: 8px; display: flex; align-items: center; justify-content: center;
- font-size: 1.3rem;
- }
- .adv-text h4 { color: #fff; font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; }
- .adv-text p { color: #6a8aaa; font-size: 0.83rem; line-height: 1.6; }
-
- /* ===== PROCESS ===== */
- #process { background: #f5f7fa; }
- .process-steps {
- display: grid; grid-template-columns: repeat(4, 1fr);
- gap: 0; max-width: 1100px; margin: 0 auto;
- position: relative;
- }
- .process-steps::before {
- content: ''; position: absolute;
- top: 36px; left: calc(12.5%); right: calc(12.5%);
- height: 2px;
- background: linear-gradient(90deg, #f5a623, #0a6fb5, #f5a623, #0a6fb5);
- z-index: 0;
- }
- .process-step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
- .step-num {
- width: 72px; height: 72px; border-radius: 50%;
- background: linear-gradient(135deg,#0a1628,#0d2a52);
- border: 3px solid #f5a623;
- display: flex; align-items: center; justify-content: center;
- margin: 0 auto 20px;
- font-size: 1.6rem;
- box-shadow: 0 4px 24px rgba(245,166,35,0.25);
- transition: transform .3s;
- }
- .process-step:hover .step-num { transform: scale(1.1); }
- .step-label {
- font-size: 0.72rem; color: #f5a623; font-weight: 700;
- letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
- }
- .process-step h4 { font-size: 0.98rem; color: #0a1628; font-weight: 700; margin-bottom: 8px; }
- .process-step p { font-size: 0.82rem; color: #6a7f99; line-height: 1.6; }
-
- /* ===== CERTIFICATIONS ===== */
- #certs { background: #fff; }
- .certs-row {
- display: flex; justify-content: center; flex-wrap: wrap;
- gap: 20px; max-width: 900px; margin: 0 auto 56px;
- }
- .cert-card {
- background: #f5f7fa; border: 2px solid #e0e8f0;
- border-radius: 10px; padding: 24px 32px; text-align: center;
- min-width: 150px; transition: all .25s;
- }
- .cert-card:hover { border-color: #f5a623; transform: translateY(-4px); box-shadow: 0 8px 24px rgba(245,166,35,0.12); }
- .cert-card .cert-icon { font-size: 2.2rem; margin-bottom: 10px; }
- .cert-card strong { display: block; color: #0a1628; font-size: 1.05rem; margin-bottom: 3px; }
- .cert-card small { color: #8a9ab0; font-size: 0.78rem; }
-
- /* Markets */
- .markets-row {
- display: flex; justify-content: center; flex-wrap: wrap;
- gap: 14px; max-width: 800px; margin: 0 auto;
- }
- .market-pill {
- background: #fff; border: 1.5px solid #d0dce8;
- color: #0a1628; padding: 9px 20px; border-radius: 24px;
- font-size: 0.88rem; font-weight: 500;
- transition: all .2s;
- }
- .market-pill:hover { background: #0a1628; color: #fff; border-color: #0a1628; }
-
- /* ===== CONTACT ===== */
- #contact {
- background: linear-gradient(135deg, #061020 0%, #0a2040 100%);
- position: relative; overflow: hidden;
- }
- #contact::after {
- content: ''; position: absolute; top: 0; right: 0; bottom: 0;
- width: 45%; opacity: 0.04;
- background-image: repeating-linear-gradient(
- 0deg, transparent, transparent 20px,
- rgba(245,166,35,1) 20px, rgba(245,166,35,1) 21px),
- repeating-linear-gradient(90deg, transparent, transparent 20px,
- rgba(245,166,35,1) 20px, rgba(245,166,35,1) 21px);
- }
- #contact .section-header .section-title { color: #fff; }
- #contact .section-header .section-sub { color: #7a9ab8; }
- .contact-wrap {
- display: grid; grid-template-columns: 1fr 1.7fr;
- gap: 56px; max-width: 1100px; margin: 0 auto;
- position: relative; z-index: 1;
- }
- .contact-info-box { }
- .contact-info-box h3 {
- color: #f5a623; font-size: 1rem; font-weight: 700;
- letter-spacing: 2px; text-transform: uppercase; margin-bottom: 28px;
- }
- .ci-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
- .ci-icon-wrap {
- width: 42px; height: 42px; flex-shrink: 0;
- background: rgba(245,166,35,0.12); border: 1px solid rgba(245,166,35,0.25);
- border-radius: 8px; display: flex; align-items: center; justify-content: center;
- font-size: 1.1rem;
- }
- .ci-txt strong { display: block; color: #fff; font-size: 0.88rem; margin-bottom: 3px; }
- .ci-txt span { color: #7a9ab8; font-size: 0.85rem; }
- .whatsapp-btn {
- display: inline-flex; align-items: center; gap: 10px;
- background: #25D366; color: #fff;
- padding: 12px 24px; border-radius: 6px;
- font-weight: 700; font-size: 0.9rem; margin-top: 8px;
- transition: transform .15s, box-shadow .15s;
- }
- .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
-
- /* Form */
- .form-box {
- background: #fff; border-radius: 12px; padding: 40px;
- box-shadow: 0 20px 60px rgba(0,0,0,0.3);
- }
- .form-box h3 { color: #0a1628; font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
- .form-box p { color: #8a9ab0; font-size: 0.85rem; margin-bottom: 28px; }
- .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
- .form-group { margin-bottom: 16px; }
- .form-group label {
- display: block; font-size: 0.82rem; color: #4a6080;
- margin-bottom: 6px; font-weight: 600;
- }
- .form-group input,
- .form-group select,
- .form-group textarea {
- width: 100%; padding: 11px 14px;
- border: 1.5px solid #d8e2ee; border-radius: 6px;
- font-size: 0.9rem; color: #1a2332;
- background: #fafcff;
- transition: border-color .2s, box-shadow .2s;
- font-family: inherit;
- }
- .form-group input:focus,
- .form-group select:focus,
- .form-group textarea:focus {
- outline: none; border-color: #f5a623;
- box-shadow: 0 0 0 3px rgba(245,166,35,0.1);
- }
- .form-group textarea { height: 100px; resize: vertical; }
- .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236a7f99' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
- .form-submit {
- width: 100%; padding: 15px;
- background: linear-gradient(135deg,#f5a623,#e09510);
- color: #0a1628; border: none; border-radius: 6px;
- font-size: 1rem; font-weight: 800; cursor: pointer;
- transition: transform .15s, box-shadow .15s;
- box-shadow: 0 4px 20px rgba(245,166,35,0.4);
- position: relative;
- }
- .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,166,35,0.55); }
- .form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none !important; }
- .form-note { font-size: 0.77rem; color: #aab8c8; text-align: center; margin-top: 12px; }
-
- /* Form status messages */
- .form-success {
- display: none;
- text-align: center;
- padding: 40px 20px;
- }
- .form-success.show { display: block; }
- .form-success-icon {
- font-size: 3rem;
- margin-bottom: 16px;
- }
- .form-success h4 {
- color: #0a1628;
- font-size: 1.2rem;
- margin-bottom: 8px;
- }
- .form-success p {
- color: #6a7f99;
- font-size: 0.9rem;
- }
-
- /* ===== FLOATING BTN ===== */
- .float-btn {
- position: fixed; bottom: 32px; right: 32px; z-index: 999;
- background: linear-gradient(135deg,#f5a623,#e09510);
- color: #0a1628; padding: 14px 24px; border-radius: 50px;
- font-weight: 800; font-size: 0.9rem;
- box-shadow: 0 8px 30px rgba(245,166,35,0.5);
- display: flex; align-items: center; gap: 8px;
- cursor: pointer; border: none;
- animation: floatPulse 2s infinite;
- transition: transform .15s;
- }
- .float-btn:hover { transform: scale(1.05); }
- @keyframes floatPulse {
- 0%,100% { box-shadow: 0 8px 30px rgba(245,166,35,0.5); }
- 50% { box-shadow: 0 8px 40px rgba(245,166,35,0.75); }
- }
- .float-btn .float-arrow { transition: transform .2s; }
- .float-btn:hover .float-arrow { transform: translateY(3px); }
-
- /* ===== FOOTER ===== */
- footer {
- background: #030d1c;
- border-top: 1px solid rgba(245,166,35,0.15);
- }
- .footer-top {
- display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
- gap: 40px; max-width: 1200px; margin: 0 auto;
- padding: 56px 5% 40px;
- }
- .footer-brand .nav-logo { font-size: 1.2rem; margin-bottom: 14px; }
- .footer-brand p { color: #4a6a8a; font-size: 0.85rem; line-height: 1.7; margin-bottom: 20px; }
- .footer-social { display: flex; gap: 10px; }
- .social-icon {
- width: 34px; height: 34px; border-radius: 6px;
- background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
- display: flex; align-items: center; justify-content: center;
- font-size: 0.9rem; color: #6a8aaa;
- transition: all .2s;
- }
- .social-icon:hover { background: rgba(245,166,35,0.15); border-color: rgba(245,166,35,0.3); color: #f5a623; }
- .footer-col h5 { color: #fff; font-size: 0.88rem; font-weight: 700; margin-bottom: 16px; letter-spacing: 1px; text-transform: uppercase; }
- .footer-col ul { list-style: none; }
- .footer-col ul li { margin-bottom: 10px; }
- .footer-col ul li a { color: #4a6a8a; font-size: 0.84rem; transition: color .2s; }
- .footer-col ul li a:hover { color: #f5a623; }
- .footer-bottom {
- border-top: 1px solid rgba(255,255,255,0.05);
- padding: 20px 5%; text-align: center;
- color: #2a4060; font-size: 0.8rem;
- display: flex; justify-content: space-between; align-items: center;
- max-width: 1200px; margin: 0 auto;
- }
-
- /* ===== RESPONSIVE ===== */
- @media (max-width: 960px) {
- .products-grid { grid-template-columns: repeat(2, 1fr); }
- .factory-wrap { grid-template-columns: 1fr; gap: 40px; }
- .process-steps { grid-template-columns: repeat(2, 1fr); gap: 32px; }
- .process-steps::before { display: none; }
- .contact-wrap { grid-template-columns: 1fr; }
- .footer-top { grid-template-columns: 1fr 1fr; }
- }
- @media (max-width: 640px) {
- .nav-links { display: none; }
- .products-grid { grid-template-columns: 1fr; }
- .form-row { grid-template-columns: 1fr; }
- .process-steps { grid-template-columns: 1fr; }
- .data-item { min-width: 50%; }
- .float-btn span:not(.float-arrow) { display: none; }
- .float-btn { padding: 14px 18px; border-radius: 50%; }
- .footer-top { grid-template-columns: 1fr; }
- .footer-bottom { flex-direction: column; gap: 8px; }
- }
- </style>
-
- <!--
- ============================================================
-  EMAILJS 配置 — 请填写以下 3 个值
- ============================================================
-  1. 前往 https://www.emailjs.com 注册（免费）
-  2. 进入 Integration（集成）页面，复制你的 Public Key
-  3. 添加 Email Service（Gmail / QQ / 企业邮箱等）
-  4. 创建 Email Template（邮件模板），定义变量名
-  5. 把下面 3 个占位符替换成真实值：
-
-  YOUR_EMAILJS_USER_ID       → 用户ID（Public Key）
-  YOUR_EMAILJS_SERVICE_ID    → 服务ID
-  YOUR_EMAILJS_TEMPLATE_ID   → 模板ID
- ============================================================
- -->
- <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
- <script>
- EMAILJS_CONFIG = {
- USER_ID: 'UouNxjgSuPfYHagbO',
- SERVICE_ID: 'service_o4246bl',
- TEMPLATE_ID: 'template_dgmi7ig'
- };
- </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dongguan Yasheng FRP Technology Co., Ltd. | FRP & Carbon Fiber Enclosure Manufacturer</title>
+    <meta name="description" content="Professional manufacturer of FRP radomes, USV hulls, equipment enclosures, automotive shells, and custom composite enclosures. Factory-direct pricing, OEM/ODM supported.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">emailjs.init('T3oS6G5q0jXvDcxnw');</script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    /* Fallback hero background — ensures image loads even if CSS path fails */
+    .hero-overlay {
+        background: url('/assets/images/hero-bg.jpg') center/cover no-repeat;
+    }
+    </style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
-<nav>
- <div class="nav-logo">
- <div class="nav-logo-icon">⚙️</div>
- SEN<span>Auto</span>
- </div>
- <a href="#products">Products</a>
- <a href="#cnc">CNC Machining</a>
- <a href="#factory">Why Us</a>
- <a href="#process">Process</a>
- <a href="#certs">Certifications</a>
- <a href="#contact" class="nav-cta">🚀 Get Free Quote</a>
- </div>
-</nav>
-
-<!-- ===== HERO ===== -->
-<section class="hero">
- <div class="hero-bg"></div>
- <div class="hero-overlay"></div>
- <div class="hero-content">
- <div class="hero-badge">TRUSTED AUTOMATION MANUFACTURER · CHINA</div>
- <h1>
- Smart Automation<br>
- <span class="highlight">Built for Global Industry</span>
- </h1>
- <p class="hero-sub">
- We manufacture <strong>packaging automation</strong>, <strong>assembly machines</strong>,
- <strong>3C dispensing</strong>, and <strong>lithium battery automation</strong> systems —
- factory direct, CE certified, shipped to 50+ countries worldwide.
- </p>
- <div class="hero-btns">
- <a href="#contact" class="btn-gold">🚀 Request Free Quote <span>→</span></a>
- <a href="#products" class="btn-outline">📦 View Products</a>
- </div>
- <div class="hero-trust">
- <div class="trust-avatars">
- <span>US</span><span>DE</span><span>JP</span><span>IN</span><span>+</span>
- </div>
- <div class="trust-text">
- <strong>2,000+ satisfied clients</strong><br>
- across North America, Europe & Asia-Pacific
- </div>
- </div>
- </div>
- <div class="hero-scroll">
- <span>SCROLL</span>
- <div class="scroll-line"></div>
- </div>
-</section>
-
-<!-- ===== DATA STRIP ===== -->
-<div class="data-strip">
- <div class="data-strip-inner">
- <div class="data-item">
- <div class="data-num">15+</div>
- <div class="data-label">Years Experience</div>
- </div>
- <div class="data-item">
- <div class="data-num">2,000+</div>
- <div class="data-label">Satisfied Clients</div>
- </div>
- <div class="data-item">
- <div class="data-num">MOQ 100pcs</div>
- <div class="data-label">Low Minimum Order</div>
- </div>
- <div class="data-item">
- <div class="data-num">15 Days</div>
- <div class="data-label">Standard Lead Time</div>
- </div>
- <div class="data-item">
- <div class="data-num">50+</div>
- <div class="data-label">Countries Served</div>
- </div>
- </div>
-</div>
-
-<!-- ===== PRODUCTS ===== -->
-<section id="products">
-  <div class="section-header">
-    <div class="section-tag">Our Product Lines</div>
-    <h2 class="section-title">3D Printing & CNC Precision Solutions</h2>
-    <p class="section-sub">From rapid prototyping to mass production — engineered for speed, precision, and global delivery.</p>
-  </div>
-  <div class="products-grid">
-
-    <!-- 3D Printing Equipment -->
-    <div class="product-card">
-      <div class="product-img" style="background:linear-gradient(135deg,#0a2a4a,#1a4a7a);display:flex;align-items:center;justify-content:center;height:200px;">
-        <span style="font-size:4rem;">🖨️</span>
-        <div class="product-img-overlay"></div>
-        <div class="product-badge">HOT</div>
-      </div>
-      <div class="product-body">
-        <h3>3D Printing Equipment & Services</h3>
-        <p>Industrial FDM, SLA, and SLS 3D printing. Rapid prototyping, low-volume production, complex geometries. All materials supported.</p>
-        <div class="product-meta">
-          <span class="meta-tag gold">MOQ: 1 pc</span>
-          <span class="meta-tag">24h Fast Turnaround</span>
-          <span class="meta-tag">STL / STEP Accepted</span>
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <span class="logo-icon"><img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/LOGO.png" alt="Yasheng FRP" class="logo-img"></span>
+                <span class="logo-text">YASHENG <em>FRP</em></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li class="dropdown">
+                    <a href="/products.html">Products <i class="fas fa-chevron-down" style="font-size:10px; margin-left: 4px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/products/radomes/">FRP Radomes</a></li>
+                        <li><a href="/products/usv-hulls/">USV Hulls</a></li>
+                        <li><a href="/products/equipment/">Equipment Enclosures</a></li>
+                        <li><a href="/products/automotive/">Automotive Shells</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/factory.html">Factory</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+            <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
         </div>
-        <a href="#contact" class="product-cta">Get Quote <span>→</span></a>
-      </div>
-    </div>
+    </nav>
 
-    <!-- CNC Precision Machining -->
-    <div class="product-card">
-      <div class="product-img" style="background:linear-gradient(135deg,#1a2a4a,#0a3050);display:flex;align-items:center;justify-content:center;height:200px;">
-        <span style="font-size:4rem;">🏭</span>
-        <div class="product-img-overlay"></div>
-        <div class="product-badge">PRECISION</div>
-      </div>
-      <div class="product-body">
-        <h3>CNC Precision Machining</h3>
-        <p>Custom CNC machined parts with 5-axis capability. Automation equipment parts, medical accessories, robot structures. Tolerances up to ±0.005mm.</p>
-        <div class="product-meta">
-          <span class="meta-tag gold">MOQ: 1 pc</span>
-          <span class="meta-tag">±0.005mm Tolerance</span>
-          <span class="meta-tag">OEM/ODM</span>
+    <!-- HERO -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Direct Factory Manufacturer — Since Established
+            </div>
+            <h1>FRP & Carbon Fiber<br><span class="highlight">Enclosure Solutions</span></h1>
+            <p class="hero-sub">From prototype to mass production — engineering-grade composite enclosures for radomes, USV hulls, equipment casings, and automotive shells.</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn btn-primary"><i class="fas fa-cube"></i> View Products</a>
+                <a href="#contact" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Get a Quote Now</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">15+</span><span class="stat-label">Years Experience</span></div>
+                <div class="stat-div"></div>
+                <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Countries Served</span></div>
+                <div class="stat-div"></div>
+                <div class="stat"><span class="stat-num">200+</span><span class="stat-label">Projects Completed</span></div>
+            </div>
         </div>
-        <a href="#cnc" class="product-cta">View Capabilities <span>→</span></a>
-      </div>
-    </div>
+        <div class="hero-scroll"><i class="fas fa-chevron-down"></i></div>
+    </section>
 
-  </div>
-</section>
-</section>
+    <!-- PRODUCTS -->
+    <section id="products" class="section products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Make</span>
+                <h2>Our Product Lines</h2>
+                <p>Precision-engineered composite enclosures manufactured in our 7,000 m² Dongguan facility. Every enclosure is customized to your exact specs and drawings.</p>
+            </div>
+            <div class="product-grid">
 
-<!-- ===== CNC PRECISION MACHINING ===== -->
-<section id="cnc">
-<div class="cnc-header">
- <div class="section-tag">CNC Precision Machining</div>
- <h2>CNC Precision Machining Services<br><span style="color:#f5a623;">Custom Parts · High Precision · Fast Delivery</span></h2>
- <p>We specialize in precision CNC machining for industrial automation, medical devices, robotics, and complex 5-axis components. Accepting custom OEM/ODM orders from worldwide buyers — from single prototypes to mass production.</p>
- <div class="cnc-highlight">
- <span>🔧 Send Your Drawings — Free Technical Review Within 24h &nbsp;|&nbsp; 📦 Small Batch & Mass Production Available &nbsp;|&nbsp; 🌎 Long-Term Export Orders Welcome</span>
- </div>
-</div>
+                <div class="product-card">
+                    <div class="product-top">
+                        <img src="/assets/images/radome-antenna.jpg" alt="FRP Radomes" class="product-photo">
+                        <div class="product-label">Radomes</div>
+                        <div class="product-overlay">
+                            <a href="#contact" class="btn btn-sm">Inquiry Now</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>FRP Radomes</h3>
+                        <p>Fiberglass reinforced plastic antenna covers designed for optimal signal transmission. Weather-resistant, lightweight, and engineered to withstand extreme environments from -40°C to +85°C.</p>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Material: Fiberglass reinforced polymer (FRP/GFRP)</li>
+                            <li><i class="fas fa-check"></i> Frequency range: L, S, C, X, Ku band</li>
+                            <li><i class="fas fa-check"></i> Wall thickness: 2mm – 8mm (customizable)</li>
+                            <li><i class="fas fa-check"></i> Custom diameters: 200mm – 4000mm</li>
+                            <li><i class="fas fa-check"></i> UV-resistant gel coat finish standard</li>
+                        </ul>
+                        <div class="product-tags">
+                            <span class="tag">5G Antenna</span>
+                            <span class="tag">Radar Systems</span>
+                            <span class="tag">SatCom</span>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Capabilities grid -->
-<div class="cnc-cap-grid">
- <div class="cnc-cap-card">
- <div class="cnc-cap-icon">🔩</div>
- <div class="cnc-cap-title">Automation Equipment Parts</div>
- <div class="cnc-cap-desc">Custom shafts, gears, brackets, housings, and precision mechanical components for automation machinery.</div>
- </div>
- <div class="cnc-cap-card">
- <div class="cnc-cap-icon">🏥</div>
- <div class="cnc-cap-title">Medical Precision Parts</div>
- <div class="cnc-cap-desc">ISO-certified workshop for medical device components with tight tolerances and biocompatible materials.</div>
- </div>
- <div class="cnc-cap-card">
- <div class="cnc-cap-icon">🦾</div>
- <div class="cnc-cap-title">Robot Structural Parts</div>
- <div class="cnc-cap-desc">Robot arms, end-effectors, joints, frames, and structural components for industrial and collaborative robots.</div>
- </div>
- <div class="cnc-cap-card">
- <div class="cnc-cap-icon">⚙️</div>
- <div class="cnc-cap-title">5-Axis Complex Parts</div>
- <div class="cnc-cap-desc">Complex geometry parts requiring 5-axis simultaneous machining. Tolerances up to ±0.005mm. Full CAD/CAM support.</div>
- </div>
- <div class="cnc-cap-card">
- <div class="cnc-cap-icon">🔄</div>
- <div class="cnc-cap-title">Turning-Milling Compound</div>
- <div class="cnc-cap-desc">Combined CNC lathe + milling center for parts requiring both cylindrical turning and complex milling in one setup.</div>
- </div>
- <div class="cnc-cap-card">
- <div class="cnc-cap-icon">📐</div>
- <div class="cnc-cap-title">Custom OEM / ODM Orders</div>
- <div class="cnc-cap-desc">Non-standard custom parts from drawings (PDF, DWG, STEP, IGES). Low MOQ. Prototype to high-volume production.</div>
- </div>
-</div>
+                <div class="product-card">
+                    <div class="product-top">
+                        <img src="/assets/images/usv-boat.jpg" alt="USV Hulls" class="product-photo">
+                        <div class="product-label">USV Hulls</div>
+                        <div class="product-overlay">
+                            <a href="#contact" class="btn btn-sm">Inquiry Now</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>USV Hulls</h3>
+                        <p>Custom fiberglass and carbon fiber hulls for unmanned surface vehicles. Optimized structural design for hydrodynamics, sensor integration, and payload capacity.</p>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Material: FRP / CFRP / sandwich panel construction</li>
+                            <li><i class="fas fa-check"></i> Length range: 500mm – 5,000mm (max 5m)</li>
+                            <li><i class="fas fa-check"></i> Load capacity: 5kg – 300kg</li>
+                            <li><i class="fas fa-check"></i> Hull weight: from 3kg (lightweight options)</li>
+                            <li><i class="fas fa-check"></i> Mounting points for sensors & payload pre-drilled</li>
+                        </ul>
+                        <div class="product-tags">
+                            <span class="tag">Ocean Survey</span>
+                            <span class="tag">Maritime Patrol</span>
+                            <span class="tag">Last-Mile Delivery</span>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Materials -->
-<div class="cnc-divider"><hr></div>
-<div class="cnc-post-label">Materials We Work With</div>
-<div class="cnc-materials-row">
- <span class="mat-chip">Aluminum Alloy (6061, 7075)</span>
- <span class="mat-chip">Stainless Steel (304, 316L)</span>
- <span class="mat-chip">Carbon Steel</span>
- <span class="mat-chip">Brass / Copper</span>
- <span class="mat-chip">Engineering Plastics (PEEK, Delrin, Nylon)</span>
- <span class="mat-chip">Titanium Alloy</span>
- <span class="mat-chip">Tool Steel</span>
- <span class="mat-chip">Cast Iron</span>
-</div>
+                <div class="product-card">
+                    <div class="product-top">
+                        <img src="/assets/images/equipment-cabinet.jpg" alt="Equipment Enclosures" class="product-photo">
+                        <div class="product-label">Equipment</div>
+                        <div class="product-overlay">
+                            <a href="#contact" class="btn btn-sm">Inquiry Now</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Equipment Enclosures</h3>
+                        <p>Custom composite housings for industrial electronics, outdoor cabinets, and monitoring stations. Corrosion-resistant, lightweight, and thermally stable enclosures.</p>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Material: FRP / CFRP / composite laminate</li>
+                            <li><i class="fas fa-check"></i> Wall thickness: 2mm – 10mm</li>
+                            <li><i class="fas fa-check"></i> Operating temperature: -40°C to +85°C</li>
+                            <li><i class="fas fa-check"></i> IP rating available: IP65 – IP68</li>
+                            <li><i class="fas fa-check"></i> EMI/RFI shielding options available</li>
+                        </ul>
+                        <div class="product-tags">
+                            <span class="tag">Industrial IoT</span>
+                            <span class="tag">Power Systems</span>
+                            <span class="tag">Telecom Base</span>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Post-processing -->
-<div class="cnc-divider"><hr></div>
-<div class="cnc-post-label">Surface Treatment & Post-Processing</div>
-<div class="cnc-post-row">
- <span class="post-chip">Anodizing (Clear / Color)</span>
- <span class="post-chip">Hard Oxidation</span>
- <span class="post-chip">Sandblasting</span>
- <span class="post-chip">Electroplating (Nickel, Chrome, Zinc)</span>
- <span class="post-chip">Heat Treatment</span>
- <span class="post-chip">Black Oxide Coating</span>
- <span class="post-chip">Polishing</span>
- <span class="post-chip">Laser Marking</span>
- <span class="post-chip">Powder Coating</span>
-</div>
+                <div class="product-card">
+                    <div class="product-top">
+                        <img src="/assets/images/automotive-car.jpg" alt="Automotive Shells" class="product-photo">
+                        <div class="product-label">Automotive</div>
+                        <div class="product-overlay">
+                            <a href="#contact" class="btn btn-sm">Inquiry Now</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Automotive Shells</h3>
+                        <p>Lightweight carbon fiber and fiberglass body panels, hoods, and aerodynamic shell components for low-volume automotive and motorsport applications.</p>
+                        <ul class="product-specs">
+                            <li><i class="fas fa-check"></i> Material: CFRP / GFRP / hybrid composite</li>
+                            <li><i class="fas fa-check"></i> Layup: vacuum infusion or prepreg available</li>
+                            <li><i class="fas fa-check"></i> Wall thickness: 1.5mm – 6mm (customizable)</li>
+                            <li><i class="fas fa-check"></i> Surface finish: gel coat or 2K paint ready</li>
+                            <li><i class="fas fa-check"></i> OEM & aftermarket shell compatible</li>
+                        </ul>
+                        <div class="product-tags">
+                            <span class="tag">EV Bodywork</span>
+                            <span class="tag">Motorsport</span>
+                            <span class="tag">Restomod</span>
+                        </div>
+                    </div>
+                </div>
 
-<!-- CTA -->
-<div class="cnc-cta-row">
- <a href="#contact">📨 Send Your Drawings — Get a Free Quote →</a>
-</div>
-<div class="cnc-note">Accepted file formats: PDF, DWG, STEP, IGES, STL, SolidWorks, AutoCAD &nbsp;|&nbsp; We sign NDA for all projects</div>
-</section>
+            </div>
+            <div class="products-cta">
+                <p><i class="fas fa-info-circle"></i> Don't see your product? We also manufacture custom composite enclosures for any application.</p>
+                <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Request Custom Quote</a>
+            </div>
+        </div>
+    </section>
 
-<!-- ===== FACTORY ADVANTAGE ===== -->
-<section id="factory">
- <div class="factory-wrap">
- <div class="factory-img-wrap">
- <img src="https://sc02.alicdn.com/kf/A29cd95809b3d4c75aeb6d0650d94ef75d.png" alt="SEN Automation Factory" />
- <div class="factory-img-overlay"></div>
- <div class="factory-img-badge">
- <strong>Our Manufacturing Base</strong>
- <p>50,000m² production facility · 300+ skilled engineers · ISO 9001 certified</p>
- </div>
- </div>
- <div class="factory-content">
- <div class="section-tag">Factory Advantages</div>
- <h2 class="section-title" style="color:#fff;">Why Manufacturers<br>Choose SEN Automation</h2>
- <p class="section-sub">15 years of precision manufacturing experience, combined with a vertically integrated supply chain, gives us unmatched quality and speed.</p>
- <div class="advantage-list">
- <div class="advantage-item">
- <div class="adv-icon">🏭</div>
- <div class="adv-text">
- <h4>Factory Direct — Zero Middlemen</h4>
- <p>Buy direct from the manufacturer. No trading company markups. Full factory audit, NDA, and OEM/ODM support available.</p>
- </div>
- </div>
- <div class="advantage-item">
- <div class="adv-icon">🎯</div>
- <div class="adv-text">
- <h4>Full Custom Engineering</h4>
- <p>Every machine is engineered for your specific product, production speed, and floor layout. We don't sell off-the-shelf only.</p>
- </div>
- </div>
- <div class="advantage-item">
- <div class="adv-icon">✅</div>
- <div class="adv-text">
- <h4>CE · ISO 9001 · RoHS Certified</h4>
- <p>All machines comply with international safety and quality standards for smooth customs clearance in the US, EU, and beyond.</p>
- </div>
- </div>
- <div class="advantage-item">
- <div class="adv-icon">🌍</div>
- <div class="adv-text">
- <h4>Global Delivery & Support</h4>
- <p>In-house export team handles all documentation, crating, and freight. English-speaking engineers provide remote commissioning.</p>
- </div>
- </div>
- </div>
- </div>
- </div>
-</section>
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-tag">About Us</span>
+                    <h2>Dongguan Yasheng FRP Technology Co., Ltd.</h2>
+                    <p>Founded in 2015, Yasheng has been dedicated to providing high-quality fiberglass and carbon fiber shell products to global customers. We have a professional team of materials scientists, engineers, and designers who focus on the research, development, and production of high-performance, lightweight composite material solutions.</p>
+                    <p>Our products are widely used in various fields such as electronic devices, transportation, aerospace, and industrial equipment, offering customers exceptional protective performance and stylish design. With advanced production processes and a rigorous quality control system, we have earned the trust and collaboration of numerous internationally renowned brands.</p>
+                    <div class="about-features">
+                        <div class="af-item">
+                            <i class="fas fa-industry"></i>
+                            <div>
+                                <strong>7,000 m²</strong>
+                                <span>Manufacturing Facility</span>
+                            </div>
+                        </div>
+                        <div class="af-item">
+                            <i class="fas fa-users-cog"></i>
+                            <div>
+                                <strong>30+ Workers</strong>
+                                <span>Technical Team</span>
+                            </div>
+                        </div>
+                        <div class="af-item">
+                            <i class="fas fa-globe-americas"></i>
+                            <div>
+                                <strong>50+ Countries</strong>
+                                <span>Global Export</span>
+                            </div>
+                        </div>
+                        <div class="af-item">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <strong>ISO 9001</strong>
+                                <span>Quality Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visuals">
+                    <div class="av-card">
+                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/OEM%20ODM.png" alt="OEM/ODM Manufacturing">
+                        <h4>OEM / ODM</h4>
+                        <p>Full customization from prototype development to mass production. Your design, our manufacturing.</p>
+                    </div>
+                    <div class="av-card">
+                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/In-House%20R%26D.png" alt="In-House R&D">
+                        <h4>In-House R&D</h4>
+                        <p>Our engineering team handles material selection, structural analysis, and mold design.</p>
+                    </div>
+                    <div class="av-card">
+                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/Quality%20First.png" alt="Quality First">
+                        <h4>Quality First</h4>
+                        <p>Every shell undergoes dimensional inspection and quality testing before shipment.</p>
+                    </div>
+                    <div class="av-card">
+                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/Flexible%20MOQ.png" alt="Flexible MOQ">
+                        <h4>Flexible MOQ</h4>
+                        <p>From single prototypes to large batch orders. MOQ as low as 1 piece for custom work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ===== PROCESS ===== -->
-<section id="process">
- <div class="section-header">
- <div class="section-tag">How We Work</div>
- <h2 class="section-title">4-Step Simple Process</h2>
- <p class="section-sub">From your first message to machine running on your factory floor — we make it straightforward, transparent, and stress-free.</p>
- </div>
- <div class="process-steps">
- <div class="process-step">
- <div class="step-num">📋</div>
- <div class="step-label">Step 01</div>
- <h4>Send Inquiry</h4>
- <p>Share your production requirements, product specs, and capacity needs via our form or WhatsApp.</p>
- </div>
- <div class="process-step">
- <div class="step-num">💡</div>
- <div class="step-label">Step 02</div>
- <h4>Free Consultation</h4>
- <p>Our engineers analyze your needs and provide a tailored solution proposal with pricing within 24 hours.</p>
- </div>
- <div class="process-step">
- <div class="step-num">⚙️</div>
- <div class="step-label">Step 03</div>
- <h4>Manufacturing</h4>
- <p>We build, test, and video-inspect your machine. You can visit our factory or request live video verification.</p>
- </div>
- <div class="process-step">
- <div class="step-num">🚢</div>
- <div class="step-label">Step 04</div>
- <h4>Delivery & Support</h4>
- <p>We handle shipping and customs docs. Our engineers assist with installation, commissioning, and operator training.</p>
- </div>
- </div>
-</section>
+    <!-- WHY US -->
+    <section id="why-us" class="section why-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>Why Clients Choose Yasheng FRP</h2>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>Factory-Direct Pricing</h3>
+                    <p>No middlemen. Competitive pricing straight from our Dongguan facility with transparent cost breakdowns.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-drafting-compass"></i></div>
+                    <h3>Free Design Support</h3>
+                    <p>We help optimize your design for manufacturability. Send us your drawings — we'll handle the rest.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Fast Lead Times</h3>
+                    <p>Prototypes in 7–15 days. Standard orders in 20–30 days. Rush orders available on request.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-box-open"></i></div>
+                    <h3>Secure Packaging</h3>
+                    <p>Export-grade wooden crating or palletized packaging. Damage-free delivery guaranteed.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-file-invoice"></i></div>
+                    <h3>Full Documentation</h3>
+                    <p>CO, Form A, CI, PL, and inspection reports available. Customs clearance support provided.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Dedicated Support</h3>
+                    <p>One dedicated account manager. Response within 2 hours during business hours. We speak English.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ===== CERTIFICATIONS ===== -->
-<section id="certs">
- <div class="section-header">
- <div class="section-tag">Quality & Compliance</div>
- <h2 class="section-title">Internationally Certified</h2>
- <p class="section-sub">Our machines meet rigorous international standards — ensuring smooth import and full compliance in your target market.</p>
- </div>
- <div class="certs-row">
- <div class="cert-card">
- <div class="cert-icon">🇪🇺</div>
- <strong>CE</strong>
- <small>European Conformity</small>
- </div>
- <div class="cert-card">
- <div class="cert-icon">📋</div>
- <strong>ISO 9001</strong>
- <small>Quality Management</small>
- </div>
- <div class="cert-card">
- <div class="cert-icon">🛡️</div>
- <strong>RoHS</strong>
- <small>Hazardous Substances</small>
- </div>
- <div class="cert-card">
- <div class="cert-icon">🌿</div>
- <strong>ISO 14001</strong>
- <small>Environmental Mgmt</small>
- </div>
- <div class="cert-card">
- <div class="cert-icon">⚡</div>
- <strong>SGS</strong>
- <small>Third-Party Tested</small>
- </div>
- </div>
+    <!-- PROCESS -->
+    <section class="section process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2>Our Production Process</h2>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <div class="step-icon"><i class="fas fa-comments"></i></div>
+                    <h4>Requirement</h4>
+                    <p>Share your drawings, specs, or samples. We review and confirm feasibility.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
+                    <h4>Design & Mold</h4>
+                    <p>We finalize the design, create or modify the mold, and produce a prototype sample.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <div class="step-icon"><i class="fas fa-industry"></i></div>
+                    <h4>Production</h4>
+                    <p>Batch manufacturing with strict QC at every stage — lamination, curing, trimming, finishing.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-num">04</div>
+                    <div class="step-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h4>Inspection</h4>
+                    <p>100% dimensional inspection, surface check, and performance testing before packing.</p>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="step">
+                    <div class="step-num">05</div>
+                    <div class="step-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h4>Shipping</h4>
+                    <p>Secure packaging, documentation preparation, and delivery to your door via air or sea.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
- <div class="section-header" style="margin-top:60px;margin-bottom:28px;">
- <div class="section-tag">Global Markets</div>
- <h2 class="section-title" style="font-size:1.5rem;">Clients in 50+ Countries</h2>
- </div>
- <div class="markets-row">
- <span class="market-pill">🇺🇸 United States</span>
- <span class="market-pill">🇨🇦 Canada</span>
- <span class="market-pill">🇩🇪 Germany</span>
- <span class="market-pill">🇬🇧 United Kingdom</span>
- <span class="market-pill">🇫🇷 France</span>
- <span class="market-pill">🇯🇵 Japan</span>
- <span class="market-pill">🇰🇷 South Korea</span>
- <span class="market-pill">🇮🇳 India</span>
- <span class="market-pill">🇸🇬 Southeast Asia</span>
- <span class="market-pill">🇦🇺 Australia</span>
- </div>
-</section>
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get in Touch</span>
+                <h2>Contact Us for a Free Quote</h2>
+                <p>Fill in the form below or reach us directly. We typically respond within 2 hours.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="ci-item">
+                        <div class="ci-icon"><i class="fas fa-building"></i></div>
+                        <div>
+                            <strong>Company</strong>
+                            <p>Dongguan Yasheng FRP Technology Co., Ltd.</p>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <strong>Address</strong>
+                            <p>Room 1103, HuiNeng Building, No. 53, Huayuan Avenue,<br>Xiegang Town, Dongguan City, Guangdong Province, China</p>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <p><a href="https://wa.me/8619867335803" target="_blank">+86 198 6733 5803</a></p>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <strong>Email</strong>
+                            <p><a href="mailto:serafinalin091@gmail.com">serafinalin091@gmail.com</a></p>
+                        </div>
+                    </div>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact">
- <div class="section-header">
- <div class="section-tag">Get In Touch</div>
- <h2 class="section-title">Request a Free Quote</h2>
- <p class="section-sub">Tell us your requirements and receive a customized solution with pricing within 24 hours. No obligation, no spam.</p>
- </div>
- <div class="contact-wrap">
- <div class="contact-info-box">
- <h3>Contact Us Directly</h3>
- <div class="ci-item">
- <div class="ci-icon-wrap">📧</div>
- <div class="ci-txt">
- <strong>Email</strong>
- <span>serasmith293@gmail.com</span>
- </div>
- </div>
- <div class="ci-item">
- <div class="ci-icon-wrap">💬</div>
- <div class="ci-txt">
- <strong>WhatsApp / WeChat</strong>
- <span>+86 XXX XXXX XXXX</span>
- </div>
- </div>
- <div class="ci-item">
- <div class="ci-icon-wrap">🕐</div>
- <div class="ci-txt">
- <strong>Response Time</strong>
- <span>Within 24 hours · Mon–Sat</span>
- </div>
- </div>
- <div class="ci-item">
- <div class="ci-icon-wrap">🏭</div>
- <div class="ci-txt">
- <strong>Factory Location</strong>
- <span>Guangdong Province, China</span>
- </div>
- </div>
- <a href="https://wa.me/8615014602373" class="whatsapp-btn" target="_blank">
- 💬 Chat on WhatsApp Now
- </a>
- </div>
+                    <div class="contact-social">
+                        <h4>Quick Contact</h4>
+                        <div class="social-links">
+                            <a href="https://wa.me/8619867335803" target="_blank" class="social-btn whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Us
+                            </a>
+                            <a href="mailto:serafinalin091@gmail.com" class="social-btn email">
+                                <i class="fas fa-envelope"></i> Send Email
+                            </a>
+                        </div>
+                    </div>
 
- <!-- ============================================================ -->
- <!-- 询盘表单 — 使用 EmailJS 发送，勿删勿改结构 -->
- <!-- ============================================================ -->
- <div class="form-box" id="formBox">
- <h3>📋 Send Your Inquiry</h3>
- <p>Fill in your details and we'll get back to you with a tailored quote.</p>
+                    <div class="response-time">
+                        <div class="rt-bar">
+                            <div class="rt-dot online"></div>
+                            <span>We typically reply within <strong>2 hours</strong> (UTC+8 Business Hours)</span>
+                        </div>
+                    </div>
+                </div>
 
- <form id="inquiryForm">
- <div class="form-row">
- <div class="form-group">
- <label>Your Name *</label>
- <input type="text" name="name" placeholder="John Smith" required />
- </div>
- <div class="form-group">
- <label>Company Name *</label>
- <input type="text" name="company" placeholder="ABC Manufacturing" required />
- </div>
- </div>
- <div class="form-row">
- <div class="form-group">
- <label>Email Address *</label>
- <input type="email" name="email" placeholder="john@company.com" required />
- </div>
- <div class="form-group">
- <label>WhatsApp / Phone</label>
- <input type="text" name="whatsapp" placeholder="+1 234 567 8900" />
- </div>
- </div>
- <div class="form-row">
- <div class="form-group">
- <label>Country *</label>
- <select name="country" required>
- <option value="">-- Select Country --</option>
- <option>United States</option>
- <option>Canada</option>
- <option>Germany</option>
- <option>United Kingdom</option>
- <option>France</option>
- <option>Japan</option>
- <option>South Korea</option>
- <option>India</option>
- <option>Australia</option>
- <option>Southeast Asia</option>
- <option>Other</option>
- </select>
- </div>
- <div class="form-group">
- <label>Product Interest *</label>
- <select name="product" required>
- <option value="">-- Select Product --</option>
- <option>Packaging Automation Equipment</option>
- <option>Automatic Assembly Machine</option>
- <option>3C Dispensing Machine</option>
- <option>Lithium Battery Automation</option>
- <option>Custom Automation System</option>
- <option>Other / Not Sure</option>
- </select>
- </div>
- </div>
- <div class="form-group">
- <label>Quantity / Budget Range</label>
- <input type="text" name="quantity" placeholder="e.g. 2 units, budget ~$50,000" />
- </div>
- <div class="form-group">
- <label>Your Requirements *</label>
- <textarea name="message" placeholder="Please describe your production process, product dimensions, required output per hour, and any special requirements..." required></textarea>
- </div>
- <button type="submit" class="form-submit" id="submitBtn">🚀 Send Inquiry — Get Reply Within 24 Hours</button>
- <p class="form-note">🔒 Your information is kept strictly confidential. We never share your data.</p>
- </form>
+                <div class="contact-form-wrap">
+                    <form class="contact-form" id="inquiryForm" onsubmit="handleSubmit(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" placeholder="John Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company" placeholder="ABC Technologies">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone / WhatsApp</label>
+                                <input type="text" id="phone" name="phone" placeholder="+1 234 567 8900">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Product Interest *</label>
+                            <select id="product" name="product" required>
+                                <option value="">Select a product category</option>
+                                <option value="FRP Radomes">FRP Radomes</option>
+                                <option value="USV Hulls">USV Hulls</option>
+                                <option value="Equipment Enclosures">Equipment Enclosures</option>
+                                <option value="Automotive Shells">Automotive Shells</option>
+                                <option value="Custom Composite">Custom Composite Enclosure</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Estimated Quantity</label>
+                            <input type="text" id="quantity" name="quantity" placeholder="e.g., 50 pcs, 200 units">
+                        </div>
+                        <div class="form-group full">
+                            <label for="message">Project Details / Requirements *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Describe your project: dimensions, material requirements, application, timeline, etc. You can also attach drawings or photos by email." required></textarea>
+                        </div>
+                        <div class="form-footer">
+                            <p class="form-note"><i class="fas fa-lock"></i> Your information is kept strictly confidential and will never be shared with third parties.</p>
+                            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                                <i class="fas fa-paper-plane"></i> Send Inquiry
+                            </button>
+                        </div>
+                        <div id="formMessage" class="form-message" style="display:none;"></div>
+                        <div id="formMessage" class="form-message" style="display:none;"></div>
+                        <div id="formSuccess" class="form-success" style="display:none;">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Message Sent!</h4>
+                            <p>Your inquiry has been received. We will reply within 2 hours during business hours.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
- <!-- 发送成功后的提示（保持原有排版，不跳转页面）-->
- <div class="form-success" id="formSuccess">
- <div class="form-success-icon">✅</div>
- <h4>Inquiry Sent Successfully!</h4>
- <p>Thank you for your message. Our team will review your requirements and get back to you within <strong>24 hours</strong>.</p>
- <p style="margin-top:12px;">📧 A confirmation has been sent to your email address.</p>
- <button onclick="resetForm()" class="form-submit" style="margin-top:24px;">Send Another Inquiry</button>
- </div>
- </div>
- <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon"><img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/LOGO.png" alt="Yasheng FRP" class="logo-img"></span>
+                    <span class="logo-text">YASHENG <em>FRP</em></span>
+                    </div>
+                    <p>Professional manufacturer of FRP & CFRP composite enclosures. Your trusted partner for custom enclosure solutions.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">FRP Radomes</a></li>
+                        <li><a href="#products">USV Hulls</a></li>
+                        <li><a href="#products">Equipment Enclosures</a></li>
+                        <li><a href="#products">Automotive Shells</a></li>
+                        <li><a href="#products">Custom Enclosures</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/8619867335803" target="_blank">+86 198 6733 5803</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:serafinalin091@gmail.com">serafinalin091@gmail.com</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Dongguan, Guangdong, China</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dongguan Yasheng FRP Technology Co., Ltd. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span><i class="fas fa-shield-alt"></i> ISO 9001 Certified</span>
+                    <span><i class="fas fa-truck"></i> Global Shipping</span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
- </div>
-</section>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/8619867335803" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-<!-- ===== FOOTER ===== -->
-<footer>
- <div class="footer-top">
- <div class="footer-brand">
- <div class="nav-logo" style="margin-bottom:16px;">
- <div class="nav-logo-icon">⚙️</div>
- SEN<span style="color:#f5a623;">Auto</span>
- </div>
- <p>Professional automation equipment manufacturer with 15 years of experience. Factory direct pricing, CE certified, serving clients in 50+ countries.</p>
- <div class="footer-social">
- <a href="#" class="social-icon">in</a>
- <a href="#" class="social-icon">🐦</a>
- <a href="#" class="social-icon">▶</a>
- <a href="#" class="social-icon">📧</a>
- </div>
- </div>
- <div class="footer-col">
- <h5>Products</h5>
- <ul>
- <li><a href="#contact">Packaging Automation</a></li>
- <li><a href="#contact">Assembly Machines</a></li>
- <li><a href="#contact">3C Dispensing</a></li>
- <li><a href="#contact">Battery Automation</a></li>
- <li><a href="#contact">Custom Systems</a></li>
- </ul>
- </div>
- <div class="footer-col">
- <h5>Company</h5>
- <ul>
- <li><a href="#factory">About Us</a></li>
- <li><a href="#certs">Certifications</a></li>
- <li><a href="#process">How We Work</a></li>
- <li><a href="#contact">After-Sales</a></li>
- <li><a href="#contact">Factory Tour</a></li>
- </ul>
- </div>
- <div class="footer-col">
- <h5>Contact</h5>
- <ul>
- <li><a href="mailto:serasmith293@gmail.com">serasmith293@gmail.com</a></li>
- <li><a href="#">WhatsApp: +86 15014602373</a></li>
- <li><a href="#">Guangdong, China</a></li>
- <li><a href="#contact">Get a Quote</a></li>
- <li><a href="#contact">Request Catalog</a></li>
- </ul>
- </div>
- </div>
- <div class="footer-bottom">
- <span>© 2026 SEN Automation Equipment Co., Ltd. All rights reserved.</span>
- <span>Factory Direct · CE Certified · 50+ Countries Served</span>
- </div>
-</footer>
-
-<!-- ===== FLOATING BUTTON ===== -->
-<a href="#contact" class="float-btn">
- <span>💬 Get Free Quote</span>
- <span class="float-arrow">↓</span>
-</a>
-
-<!-- ============================================================ -->
-<!-- EmailJS 发送脚本 — 表单提交逻辑 -->
-<!-- ============================================================ -->
-<script>
-(function() {
- // 初始化 EmailJS（请替换上方的 3 个配置值）
- emailjs.init(EMAILJS_CONFIG.USER_ID);
-
- const form = document.getElementById('inquiryForm');
- const submitBtn = document.getElementById('submitBtn');
- const formSuccess = document.getElementById('formSuccess');
- const formContent = form;
-
- form.addEventListener('submit', function(e) {
- e.preventDefault();
-
- // 禁用按钮，显示加载状态
- submitBtn.disabled = true;
- submitBtn.textContent = '⏳ Sending...';
-
- // 收集表单数据
- const formData = {
- name: form.name.value,
- company: form.company.value,
- email: form.email.value,
- whatsapp: form.whatsapp.value,
- country: form.country.value,
- product: form.product.value,
- quantity: form.quantity.value,
- message: form.message.value
- };
-
- // 通过 EmailJS 发送邮件
- emailjs.send(
- EMAILJS_CONFIG.SERVICE_ID,
- EMAILJS_CONFIG.TEMPLATE_ID,
- formData
- )
- .then(function() {
- // 发送成功：隐藏表单，显示成功提示
- formContent.style.display = 'none';
- formSuccess.classList.add('show');
- })
- .catch(function(error) {
- // 发送失败：恢复按钮，给出提示
- submitBtn.disabled = false;
- submitBtn.textContent = '🚀 Send Inquiry — Get Reply Within 24 Hours';
- alert('❌ Failed to send your inquiry. Please try again or email us directly at serasmith293@gmail.com');
- console.error('EmailJS Error:', error);
- });
- });
-
- // 重置表单（再次发送）
- window.resetForm = function() {
- form.reset();
- formContent.style.display = 'block';
- formSuccess.classList.remove('show');
- submitBtn.disabled = false;
- submitBtn.textContent = '🚀 Send Inquiry — Get Reply Within 24 Hours';
- };
-})();
-</script>
-<!-- ============================================================ -->
-
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# robots.txt for xinfengauto.com
 User-agent: *
 Allow: /
-Sitemap: https://xinfengauto.com/sitemap.xml
+
+Sitemap: https://ysfrp.com/sitemap.xml
