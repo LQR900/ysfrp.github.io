@@ -179,6 +179,12 @@ ul { list-style: none; }
 .product-card:nth-child(2) .product-top { background-image: url('/assets/images/usv-boat.jpg'); }
 .product-card:nth-child(3) .product-top { background-image: url('/assets/images/equipment-cabinet.jpg'); }
 .product-card:nth-child(4) .product-top { background-image: url('/assets/images/automotive-car.jpg'); }
+/* Showcase grid — 5 new AliExpress product cards */
+#showcase-grid .product-card:nth-child(1) .product-top { background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/radome-1.webp'); }
+#showcase-grid .product-card:nth-child(2) .product-top { background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/usv-m10.png'); }
+#showcase-grid .product-card:nth-child(3) .product-top { background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/speaker-lb003.jpg'); }
+#showcase-grid .product-card:nth-child(4) .product-top { background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/speaker-lb004.jpg'); }
+#showcase-grid .product-card:nth-child(5) .product-top { background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/speaker-lb005.jpg'); }
 
 .product-top {
     position: relative; height: 260px;
