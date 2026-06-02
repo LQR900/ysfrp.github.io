@@ -168,7 +168,7 @@ ul { list-style: none; }
 
 /* --- PRODUCTS --- */
 .products { background: var(--bg-light); }
-.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px; }
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
 .product-card {
     background: #fff; border-radius: var(--radius); overflow: hidden;
     box-shadow: var(--shadow); transition: var(--transition); border: 1px solid var(--border);
@@ -612,9 +612,11 @@ ul { list-style: none; }
   .detail-main-img { height: 300px; }
   .about-stats-row, .about-grid-2col, .factory-stats, .prod-line-grid { grid-template-columns: 1fr 1fr; }
   .form-row { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
   .about-stats-row, .about-grid-2col, .factory-stats, .prod-line-grid { grid-template-columns: 1fr; }
   .detail-actions { flex-direction: column; }
   .detail-actions .btn { width: 100%; }
+  .product-grid { grid-template-columns: 1fr; }
 }
