@@ -75,118 +75,26 @@
         </div>
     </section>
 
-    <!-- PRODUCT CATEGORIES -->
+    <!-- PRODUCT CATALOG -->
     <section class="section">
         <div class="container">
-            <div class="product-grid">
 
-                <!-- Radomes -->
-                <div class="product-card">
-                    <div class="product-top">
-                        <img src="/assets/images/radome-antenna.jpg" alt="FRP Radomes" class="product-photo">
-                        <div class="product-label">Radomes</div>
-                        <div class="product-overlay">
-                            <a href="/products/radomes/" class="btn btn-sm">View Details</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>FRP Radomes</h3>
-                        <p>Fiberglass reinforced plastic antenna covers designed for optimal signal transmission across L, S, C, X, and Ku bands.</p>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Material: FRP/GFRP composite</li>
-                            <li><i class="fas fa-check"></i> Diameter: 200mm – 4000mm</li>
-                            <li><i class="fas fa-check"></i> Temperature: -40°C to +85°C</li>
-                            <li><i class="fas fa-check"></i> UV-resistant gel coat finish</li>
-                        </ul>
-                        <a href="/products/radomes/" class="btn btn-primary btn-sm mt-16"><i class="fas fa-arrow-right"></i> Learn More</a>
-                    </div>
-                </div>
-
-                <!-- USV Hulls -->
-                <div class="product-card">
-                    <div class="product-top">
-                        <img src="/assets/images/usv-boat.jpg" alt="USV Hulls" class="product-photo">
-                        <div class="product-label">USV Hulls</div>
-                        <div class="product-overlay">
-                            <a href="/products/usv-hulls/" class="btn btn-sm">View Details</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>USV Hulls</h3>
-                        <p>Custom fiberglass and carbon fiber hull shells for unmanned surface vehicles (USV). Max length up to 5 meters.</p>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Material: FRP/CFRP/sandwich panel</li>
-                            <li><i class="fas fa-check"></i> Length: 500mm – 5,000mm (max 5m)</li>
-                            <li><i class="fas fa-check"></i> Load capacity: 5kg – 300kg</li>
-                            <li><i class="fas fa-check"></i> Sensor mounting points pre-drilled</li>
-                        </ul>
-                        <a href="/products/usv-hulls/" class="btn btn-primary btn-sm mt-16"><i class="fas fa-arrow-right"></i> Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Equipment Enclosures -->
-                <div class="product-card">
-                    <div class="product-top">
-                        <img src="/assets/images/equipment-cabinet.jpg" alt="Equipment Enclosures" class="product-photo">
-                        <div class="product-label">Equipment</div>
-                        <div class="product-overlay">
-                            <a href="/products/equipment/" class="btn btn-sm">View Details</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Equipment Enclosures</h3>
-                        <p>Corrosion-resistant composite housings for industrial electronics with IP65–IP68 protection ratings.</p>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Material: FRP/CFRP/composite laminate</li>
-                            <li><i class="fas fa-check"></i> Wall thickness: 2mm – 10mm</li>
-                            <li><i class="fas fa-check"></i> IP rating: IP65 – IP68 available</li>
-                            <li><i class="fas fa-check"></i> EMI/RFI shielding options</li>
-                        </ul>
-                        <a href="/products/equipment/" class="btn btn-primary btn-sm mt-16"><i class="fas fa-arrow-right"></i> Learn More</a>
-                    </div>
-                </div>
-
-                <!-- Automotive Shells -->
-                <div class="product-card">
-                    <div class="product-top">
-                        <img src="/assets/images/automotive-car.jpg" alt="Automotive Shells" class="product-photo">
-                        <div class="product-label">Automotive</div>
-                        <div class="product-overlay">
-                            <a href="/products/automotive/" class="btn btn-sm">View Details</a>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <h3>Automotive Shells</h3>
-                        <p>Lightweight carbon fiber and fiberglass body panels, hoods, and aerodynamic shell components.</p>
-                        <ul class="product-specs">
-                            <li><i class="fas fa-check"></i> Material: CFRP/GFRP/hybrid composite</li>
-                            <li><i class="fas fa-check"></i> Layup: vacuum infusion or prepreg</li>
-                            <li><i class="fas fa-check"></i> Wall thickness: 1.5mm – 6mm</li>
-                            <li><i class="fas fa-check"></i> Surface: gel coat or 2K paint ready</li>
-                        </ul>
-                        <a href="/products/automotive/" class="btn btn-primary btn-sm mt-16"><i class="fas fa-arrow-right"></i> Learn More</a>
-                    </div>
-                </div>
-
+            <!-- Category Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All Products</button>
+                <button class="filter-tab" data-filter="radome">Fiberglass Radome</button>
+                <button class="filter-tab" data-filter="usv">USV Hulls</button>
+                <button class="filter-tab" data-filter="equipment">Equipment Enclosure</button>
+                <button class="filter-tab" data-filter="automotive">Automotive Shell</button>
             </div>
 
-            <!-- NEW: AliExpress Product Showcase -->
-            <div class="section-header" style="margin: 48px 0 32px; text-align: center;">
-                <span class="section-tag">Featured Products</span>
-                <h2>Hot-Selling FRP Products for Global Market</h2>
-                <p style="color: var(--text-light); max-width: 600px; margin: 12px auto 0;">Browse our most popular composite shell products — available for international shipping with flexible MOQ.</p>
-            </div>
+            <!-- Product Cards Grid -->
+            <div class="product-grid catalog-grid">
 
-            <div class="product-grid" id="showcase-grid">
-
-                <!-- Radome Product Card -->
-                <div class="product-card">
-                    <div class="product-top" id="card-radome">
-                        <img src="" alt="Fiberglass Radome" class="product-photo" id="img-radome" style="display:none;">
+                <!-- 1. Fiberglass Radome -->
+                <div class="product-card" data-category="radome">
+                    <div class="product-top" style="background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/radome-1.webp');">
                         <div class="product-label">Radome</div>
-                        <div class="product-overlay">
-                            <a href="https://www.aliexpress.com/item/4005000000000.html" target="_blank" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> View on AliExpress</a>
-                        </div>
                     </div>
                     <div class="product-info">
                         <h3>Fiberglass Radome</h3>
@@ -197,22 +105,18 @@
                             <li><i class="fas fa-check"></i> Operating Temp: -40°C to +85°C</li>
                             <li><i class="fas fa-check"></i> MOQ: 1 piece</li>
                         </ul>
-                        <a href="https://wa.me/8619867335803?text=Hi, I am interested in Fiberglass Radome products." target="_blank" class="btn btn-primary btn-sm mt-16"><i class="fab fa-whatsapp"></i> Inquire Now</a>
+                        <a href="https://wa.me/8619867335803?text=Hi, I am interested in Fiberglass Radome." target="_blank" class="btn btn-primary btn-sm mt-16"><i class="fab fa-whatsapp"></i> Inquire Now</a>
                     </div>
                 </div>
 
-                <!-- USV M10 Product Card -->
-                <div class="product-card">
-                    <div class="product-top" id="card-usv">
-                        <img src="" alt="M10 Unmanned Survey Boat" class="product-photo" id="img-usv" style="display:none;">
+                <!-- 2. M10 Unmanned Survey Boat -->
+                <div class="product-card" data-category="usv">
+                    <div class="product-top" style="background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/usv-m10.png');">
                         <div class="product-label">USV</div>
-                        <div class="product-overlay">
-                            <a href="https://www.aliexpress.com/item/4005000000001.html" target="_blank" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> View on AliExpress</a>
-                        </div>
                     </div>
                     <div class="product-info">
                         <h3>M10 Unmanned Survey Boat</h3>
-                        <p>Professional-grade unmanned surface vessel pre-loaded with RTK GNSS and IMU sensors for hydrographic surveys up to 100m water depth. Modular payload bay.</p>
+                        <p>Professional-grade unmanned surface vessel with RTK GNSS and IMU sensors for hydrographic surveys up to 100m water depth. Modular payload bay.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-check"></i> Hull: FRP sandwich panel</li>
                             <li><i class="fas fa-check"></i> Length: 1,000mm (M10)</li>
@@ -223,18 +127,14 @@
                     </div>
                 </div>
 
-                <!-- Speaker LB003 Product Card -->
-                <div class="product-card">
-                    <div class="product-top" id="card-lb003">
-                        <img src="" alt="FRP Speaker Horn Enclosure LB003" class="product-photo" id="img-lb003" style="display:none;">
-                        <div class="product-label">Speaker</div>
-                        <div class="product-overlay">
-                            <a href="https://www.aliexpress.com/item/4005000000002.html" target="_blank" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> View on AliExpress</a>
-                        </div>
+                <!-- 3. FRP Speaker Horn Enclosure LB003 -->
+                <div class="product-card" data-category="equipment">
+                    <div class="product-top" style="background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/speaker-lb003.jpg');">
+                        <div class="product-label">Equipment</div>
                     </div>
                     <div class="product-info">
                         <h3>FRP Speaker Horn Enclosure LB003</h3>
-                        <p>White horn-style FRP speaker enclosure, designed for outdoor PA systems and marine audio applications. Corrosion-resistant, UV-stable gel coat finish.</p>
+                        <p>White horn-style FRP speaker enclosure for outdoor PA systems and marine audio. Corrosion-resistant, UV-stable gel coat finish.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-check"></i> Material: FRP / GFRP</li>
                             <li><i class="fas fa-check"></i> Finish: white gel coat</li>
@@ -245,18 +145,14 @@
                     </div>
                 </div>
 
-                <!-- Speaker LB004 Product Card -->
-                <div class="product-card">
-                    <div class="product-top" id="card-lb004">
-                        <img src="" alt="FRP Speaker Enclosure LB004" class="product-photo" id="img-lb004" style="display:none;">
-                        <div class="product-label">Speaker</div>
-                        <div class="product-overlay">
-                            <a href="https://www.aliexpress.com/item/4005000000003.html" target="_blank" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> View on AliExpress</a>
-                        </div>
+                <!-- 4. FRP Speaker Enclosure LB004 -->
+                <div class="product-card" data-category="equipment">
+                    <div class="product-top" style="background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/speaker-lb004.jpg');">
+                        <div class="product-label">Equipment</div>
                     </div>
                     <div class="product-info">
                         <h3>FRP Speaker Enclosure LB004</h3>
-                        <p>Dual-horn FRP speaker enclosure with base mount, suitable for stadium, marine, and industrial audio. Lightweight and weatherproof composite construction.</p>
+                        <p>Dual-horn FRP speaker enclosure with base mount for stadium, marine, and industrial audio. Lightweight and weatherproof.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-check"></i> Material: FRP / GFRP</li>
                             <li><i class="fas fa-check"></i> Design: dual-horn with base</li>
@@ -267,18 +163,14 @@
                     </div>
                 </div>
 
-                <!-- Speaker LB005 Product Card -->
-                <div class="product-card">
-                    <div class="product-top" id="card-lb005">
-                        <img src="" alt="FRP Speaker Enclosure LB005" class="product-photo" id="img-lb005" style="display:none;">
-                        <div class="product-label">Speaker</div>
-                        <div class="product-overlay">
-                            <a href="https://www.aliexpress.com/item/4005000000004.html" target="_blank" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> View on AliExpress</a>
-                        </div>
+                <!-- 5. FRP Speaker Enclosure LB005 -->
+                <div class="product-card" data-category="equipment">
+                    <div class="product-top" style="background-image: url('https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/products/speaker-lb005.jpg');">
+                        <div class="product-label">Equipment</div>
                     </div>
                     <div class="product-info">
                         <h3>FRP Speaker Enclosure LB005</h3>
-                        <p>Tall tripod-style FRP speaker horn with wide dispersion pattern, ideal for outdoor concerts and coastal audio installations. Saltwater-resistant FRP construction.</p>
+                        <p>Tall tripod-style FRP speaker horn with wide dispersion pattern for outdoor concerts and coastal installations. Saltwater-resistant.</p>
                         <ul class="product-specs">
                             <li><i class="fas fa-check"></i> Material: FRP / GFRP</li>
                             <li><i class="fas fa-check"></i> Design: tall tripod horn</li>
@@ -299,6 +191,32 @@
             </div>
         </div>
     </section>
+
+    <!-- Filter + Animation Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.filter-tab');
+        const cards = document.querySelectorAll('.catalog-grid .product-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                const filter = this.dataset.filter;
+
+                cards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = '';
+                        card.style.animation = 'fadeInUp 0.4s ease forwards';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+    </script>
 
     <!-- FOOTER -->
     <footer class="footer">
