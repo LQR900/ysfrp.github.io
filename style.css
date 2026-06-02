@@ -389,8 +389,8 @@ ul { list-style: none; }
     .stat-div { width: 40px; height: 1px; }
     .section { padding: 64px 0; }
     .product-grid { grid-template-columns: 1fr; }
-    .filter-tabs { gap: 6px; }
-    .filter-tab { padding: 8px 16px; font-size: 12px; }
+    .filter-tabs { gap: 8px; padding: 6px; }
+    .filter-tab { padding: 10px 18px; font-size: 12px; }
     .about-features { grid-template-columns: 1fr; }
     .about-visuals { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: 1fr; }
@@ -476,14 +476,17 @@ ul { list-style: none; }
 /* --- FILTER TABS --- */
 .filter-tabs {
     display: flex;
-    gap: 8px;
+    gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 48px;
+    padding: 8px;
+    background: var(--bg-light);
+    border-radius: var(--radius);
 }
 .filter-tab {
-    padding: 10px 24px;
-    border: 2px solid var(--border);
+    padding: 12px 28px;
+    border: 2px solid transparent;
     border-radius: 100px;
     background: #fff;
     font-family: 'Rajdhani', sans-serif;
@@ -493,16 +496,20 @@ ul { list-style: none; }
     cursor: pointer;
     transition: var(--transition);
     text-transform: uppercase;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(15,42,74,0.06);
 }
 .filter-tab:hover {
     border-color: var(--primary);
     color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(15,42,74,0.1);
 }
 .filter-tab.active {
     background: var(--primary);
     border-color: var(--primary);
     color: #fff;
+    box-shadow: 0 4px 16px rgba(15,42,74,0.2);
 }
 
 /* Fade-in animation for filtered cards */
