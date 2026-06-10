@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Preload critical image -->
+    <link rel="preload" href="/assets/images/hero-bg.webp" as="image" type="image/webp">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yasheng FRP | FRP & Carbon Fiber Manufacturer</title>
@@ -16,7 +18,7 @@
           "url": "https://ysfrp.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/LOGO.png"
+            "url": "/assets/images/logo.webp"
           },
           "description": "Professional FRP and carbon fiber shell manufacturer serving 50+ countries worldwide. 7,000 m² facility in Dongguan, China.",
           "address": {
@@ -55,7 +57,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Yasheng FRP | FRP & Carbon Fiber Manufacturer">
     <meta property="og:description" content="Professional manufacturer of FRP radomes, USV hulls, equipment enclosures, automotive shells, and custom composite enclosures. Factory-direct pricing, OEM/ODM supported.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/hero-bg.jpg">
+    <meta property="og:image" content="/assets/images/hero-bg.webp">
     <meta property="og:url" content="https://ysfrp.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Yasheng FRP">
@@ -63,18 +65,18 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Yasheng FRP | FRP & Carbon Fiber Manufacturer">
     <meta name="twitter:description" content="Professional manufacturer of FRP radomes, USV hulls, equipment enclosures, automotive shells, and custom composite enclosures.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/hero-bg.jpg">
+    <meta name="twitter:image" content="/assets/images/hero-bg.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
     <script type="text/javascript">emailjs.init('T3oS6G5q0jXvDcxnw');</script>
     <link rel="stylesheet" href="style.css">
     <style>
     /* Fallback hero background — ensures image loads even if CSS path fails */
     .hero-overlay {
-        background: url('/assets/images/hero-bg.jpg') center/cover no-repeat;
+        background: url('/assets/images/hero-bg.webp') center/cover no-repeat;
     }
     </style>
     <!-- Google Analytics 4 -->
@@ -92,7 +94,7 @@
     <nav class="navbar">
         <div class="container nav-inner">
             <a href="#" class="logo">
-                <span class="logo-icon"><img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/LOGO.png" alt="Yasheng FRP" class="logo-img"></span>
+                <span class="logo-icon"><img src="/assets/images/logo.webp" alt="Yasheng FRP" class="logo-img"></span>
                 <span class="logo-text">YASHENG <em>FRP</em></span>
             </a>
             <ul class="nav-links">
@@ -152,7 +154,7 @@
 
                 <div class="product-card">
                     <div class="product-top">
-                        <img src="/assets/images/radome-antenna.jpg" alt="FRP Radomes" class="product-photo">
+                        <img loading="lazy" decoding="async" src="/assets/images/radome-antenna.jpg" alt="FRP Radomes" class="product-photo" width="600" height="400">
                         <div class="product-label">Radomes</div>
                         <div class="product-overlay">
                             <a href="#contact" class="btn btn-sm">Inquiry Now</a>
@@ -178,7 +180,7 @@
 
                 <div class="product-card">
                     <div class="product-top">
-                        <img src="/assets/images/usv-boat.jpg" alt="USV Hulls" class="product-photo">
+                        <img loading="lazy" decoding="async" src="/assets/images/usv-boat.jpg" alt="USV Hulls" class="product-photo" width="600" height="400">
                         <div class="product-label">USV Hulls</div>
                         <div class="product-overlay">
                             <a href="#contact" class="btn btn-sm">Inquiry Now</a>
@@ -204,7 +206,7 @@
 
                 <div class="product-card">
                     <div class="product-top">
-                        <img src="/assets/images/equipment-cabinet.jpg" alt="Equipment Enclosures" class="product-photo">
+                        <img loading="lazy" decoding="async" src="/assets/images/equipment-cabinet.jpg" alt="Equipment Enclosures" class="product-photo" width="600" height="400">
                         <div class="product-label">Equipment</div>
                         <div class="product-overlay">
                             <a href="#contact" class="btn btn-sm">Inquiry Now</a>
@@ -230,7 +232,7 @@
 
                 <div class="product-card">
                     <div class="product-top">
-                        <img src="/assets/images/automotive-car.jpg" alt="Automotive Shells" class="product-photo">
+                        <img loading="lazy" decoding="async" src="/assets/images/automotive-car.jpg" alt="Automotive Shells" class="product-photo" width="600" height="400">
                         <div class="product-label">Automotive</div>
                         <div class="product-overlay">
                             <a href="#contact" class="btn btn-sm">Inquiry Now</a>
@@ -304,22 +306,22 @@
                 </div>
                 <div class="about-visuals">
                     <div class="av-card">
-                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/OEM%20ODM.png" alt="OEM/ODM Manufacturing">
+                        <img loading="lazy" decoding="async" src="/assets/images/oem-odm.webp" alt="OEM/ODM Manufacturing" width="600" height="400">
                         <h4>OEM / ODM</h4>
                         <p>Full customization from prototype development to mass production. Your design, our manufacturing.</p>
                     </div>
                     <div class="av-card">
-                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/In-House%20R%26D.png" alt="In-House R&D">
+                        <img loading="lazy" decoding="async" src="/assets/images/inhouse-rd.webp" alt="In-House R&D" width="600" height="400">
                         <h4>In-House R&D</h4>
                         <p>Our engineering team handles material selection, structural analysis, and mold design.</p>
                     </div>
                     <div class="av-card">
-                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/Quality%20First.png" alt="Quality First">
+                        <img loading="lazy" decoding="async" src="/assets/images/quality-first.webp" alt="Quality First" width="600" height="400">
                         <h4>Quality First</h4>
                         <p>Every shell undergoes dimensional inspection and quality testing before shipment.</p>
                     </div>
                     <div class="av-card">
-                        <img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/Flexible%20MOQ.png" alt="Flexible MOQ">
+                        <img loading="lazy" decoding="async" src="/assets/images/flexible-moq.webp" alt="Flexible MOQ" width="600" height="400">
                         <h4>Flexible MOQ</h4>
                         <p>From single prototypes to large batch orders. MOQ as low as 1 piece for custom work.</p>
                     </div>
@@ -542,7 +544,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="logo">
-                        <span class="logo-icon"><img src="https://raw.githubusercontent.com/LQR900/ysfrp.github.io/main/assets/images/LOGO.png" alt="Yasheng FRP" class="logo-img"></span>
+                        <span class="logo-icon"><img src="/assets/images/logo.webp" alt="Yasheng FRP" class="logo-img"></span>
                     <span class="logo-text">YASHENG <em>FRP</em></span>
                     </div>
                     <p>Professional manufacturer of FRP & CFRP composite enclosures. Your trusted partner for custom enclosure solutions.</p>
