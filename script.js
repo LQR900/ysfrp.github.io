@@ -2,6 +2,25 @@
 // YASHENG FRP - JavaScript v4 (EmailJS)
 // ============================================
 
+// --- EmailJS: dynamic load + init (avoid script-tag order issues) ---
+(function() {
+    const EMAILJS_CDN = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    const EMAILJS_PUBLIC_KEY = 'T3oS6G5q0jXvDcxnw';
+    const s = document.createElement('script');
+    s.src = EMAILJS_CDN;
+    s.onload = function() {
+        if (window.emailjs) {
+            emailjs.init(EMAILJS_PUBLIC_KEY);
+            window.__emailjsReady = true;
+            console.log('EmailJS loaded and initialized.');
+        }
+    };
+    s.onerror = function() {
+        console.error('Failed to load EmailJS from CDN. Form will not work until this is fixed.');
+    };
+    document.head.appendChild(s);
+})();
+
 // --- Mobile Menu ---
 function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
