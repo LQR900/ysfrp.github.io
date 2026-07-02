@@ -2,12 +2,12 @@
 // YASHENG FRP - JavaScript v4 (EmailJS)
 // ============================================
 
-// --- EmailJS: dynamic load + init (avoid script-tag order issues) ---
+// --- EmailJS: dynamic load + init (local, no CDN dependency) ---
 (function() {
-    const EMAILJS_CDN = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    const EMAILJS_SDK = '/assets/js/email.min.js';
     const EMAILJS_PUBLIC_KEY = 'T3oS6G5q0jXvDcxnw';
     const s = document.createElement('script');
-    s.src = EMAILJS_CDN;
+    s.src = EMAILJS_SDK;
     s.onload = function() {
         if (window.emailjs) {
             emailjs.init(EMAILJS_PUBLIC_KEY);
@@ -16,7 +16,7 @@
         }
     };
     s.onerror = function() {
-        console.error('Failed to load EmailJS from CDN. Form will not work until this is fixed.');
+        console.error('Failed to load EmailJS SDK from local path. Form will not work until this is fixed.');
     };
     document.head.appendChild(s);
 })();
@@ -142,6 +142,17 @@ function handleSubmit(e) {
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     btn.disabled = true;
 
+    // Safety: wait for EmailJS to be ready (up to 5s)
+    function whenEmailJSReady(cb) {
+        if (window.emailjs && window.__emailjsReady) return cb();
+        let waited = 0;
+        const t = setInterval(function() {
+            waited += 100;
+            if (window.emailjs && window.__emailjsReady) { clearInterval(t); cb(); }
+            else if (waited >= 5000) { clearInterval(t); cb(new Error('EmailJS not loaded')); }
+        }, 100);
+    }
+
     // Send via EmailJS
     // Service ID: service_4byksa2
     // Template ID: template_hmvbvfs
@@ -156,7 +167,15 @@ function handleSubmit(e) {
         reply_to: d.from_email
     };
 
-    emailjs.send('service_4byksa2', 'template_hmvbvfs', templateParams)
+    whenEmailJSReady(function(err) {
+        if (err || !window.emailjs) {
+            console.error('EmailJS SDK not ready');
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
+            btn.disabled = false;
+            showMessage('Form is still loading. Please try again in a moment, or email us directly: serafinalin091@gmail.com', 'error');
+            return;
+        }
+        window.emailjs.send('service_4byksa2', 'template_hmvbvfs', templateParams)
         .then(function(response) {
             // Success
             btn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
@@ -176,6 +195,7 @@ function handleSubmit(e) {
             btn.disabled = false;
             showMessage('Failed to send. Please email us directly: serafinalin091@gmail.com', 'error');
         });
+    });
 }
 
 function showMessage(text, type) {

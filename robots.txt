@@ -1,4 +1,23 @@
+# Robots.txt for YSFRP - FRP/Composite Manufacturing Factory
+# Optimized for Google, Bing, and AI Search Engines
+# Last Updated: 2026-07-02
+
 User-agent: *
 Allow: /
 
+# Disallow duplicate or low-value pages
+Disallow: /assets/
+Disallow: /scripts/
+Disallow: /temp/
+Disallow: /*.json$
+Disallow: /*?*
+
+# Crawl-delay for responsible crawling
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://ysfrp.com/sitemap.xml
+
+# Additional sitemaps for large sites
+# Sitemap: https://ysfrp.com/sitemap-products.xml
+# Sitemap: https://ysfrp.com/sitemap-blog.xml
