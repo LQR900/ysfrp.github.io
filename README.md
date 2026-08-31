@@ -20,7 +20,7 @@ Copy the entire `website-template` folder to your computer.
 **必改内容（必须修改）:**
 
 1. **联系信息** — 打开 `index.html`，搜索以下内容并替换:
-   - `+86 198 6733 5803` → 你的 WhatsApp 号码
+   - `+86 131 1312 5793` → 你的 WhatsApp 号码
    - `serafinalin091@gmail.com` → 你的邮箱
    - `sales@frp-manufacturer.com` → 你的邮箱
    - `Dongguan Yasheng FRP Technology Co., Ltd.` → 你的公司英文全称
