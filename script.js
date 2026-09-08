@@ -2,23 +2,25 @@
 // YASHENG FRP - JavaScript v4 (EmailJS)
 // ============================================
 
-// --- EmailJS: dynamic load + init (local, no CDN dependency) ---
-(function() {
-    const EMAILJS_SDK = '/assets/js/email.min.js';
+// --- EmailJS: wait for CDN SDK to be ready before use ---
+// The SDK is loaded via <script defer> in index.html's <head>.
+// We set a flag when it's ready so handleSubmit() knows it's safe to call.
+(function waitForEmailJS() {
     const EMAILJS_PUBLIC_KEY = 'T3oS6G5q0jXvDcxnw';
-    const s = document.createElement('script');
-    s.src = EMAILJS_SDK;
-    s.onload = function() {
+    let attempts = 0;
+    function tryInit() {
+        attempts++;
         if (window.emailjs) {
             emailjs.init(EMAILJS_PUBLIC_KEY);
             window.__emailjsReady = true;
-            console.log('EmailJS loaded and initialized.');
+            console.log('[EmailJS] SDK ready.');
+        } else if (attempts < 40) {
+            setTimeout(tryInit, 100); // poll every 100ms, up to 4s
+        } else {
+            console.warn('[EmailJS] SDK not available after 4s.');
         }
-    };
-    s.onerror = function() {
-        console.error('Failed to load EmailJS SDK from local path. Form will not work until this is fixed.');
-    };
-    document.head.appendChild(s);
+    }
+    tryInit();
 })();
 
 // --- Mobile Menu ---

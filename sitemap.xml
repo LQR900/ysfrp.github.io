@@ -67,6 +67,12 @@
   
   <!-- Blog Section -->
   <url>
+    <loc>https://ysfrp.com/cases.html</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ysfrp.com/blog.html</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
