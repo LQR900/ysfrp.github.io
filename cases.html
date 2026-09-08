@@ -35,26 +35,32 @@
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
-        <div class="container header-inner">
+    <nav aria-label="Main navigation" class="navbar">
+        <div class="container nav-inner">
             <a href="/" class="logo">
-                <img src="/assets/images/logo.webp" height="50" width="180" alt="YSFRP - FRP OEM Manufacturer" class="logo-img">
+                <span class="logo-icon"><img fetchpriority="high" src="/assets/images/logo.webp" height="50" width="180" alt="YSFRP - FRP OEM Manufacturer" class="logo-img"></span>
                 <span class="logo-text">YASHENG <em>FRP</em></span>
             </a>
-            <nav class="nav" id="nav">
-                <ul class="nav-list">
-                    <li><a href="/" class="nav-link">Home</a></li>
-                    <li><a href="/products.html" class="nav-link">Products</a></li>
-                    <li><a href="/about.html" class="nav-link">About</a></li>
-                    <li><a href="/factory.html" class="nav-link">Factory</a></li>
-                    <li><a href="/blog.html" class="nav-link">Blog</a></li>
-                    <li><a href="/contact.html" class="nav-link active">Contact</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/8613113125793" target="_blank" class="btn btn-nav"><i class="fab fa-whatsapp"></i> +86 131 1312 5793</a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li class="dropdown">
+                    <a href="/products.html">Products <i class="fas fa-chevron-down" style="font-size:10px; margin-left: 4px;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/products/radomes/">FRP Radomes</a></li>
+                        <li><a href="/products/usv-hulls/">USV Hulls</a></li>
+                        <li><a href="/products/equipment/">Equipment Enclosures</a></li>
+                        <li><a href="/products/automotive/">Automotive Shells</a></li>
+                    </ul>
+                </li>
+                <li><a href="/about.html">About Us</a></li>
+                <li><a href="/factory.html">Factory</a></li>
+                <li><a href="/blog.html">Blog</a></li>
+                <li><a href="/cases.html" class="active">Case Studies</a></li>
+                <li><a href="/contact.html" class="btn-nav">Contact Us</a></li>
+            </ul>
+            <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
         </div>
-    </header>
+    </nav>
 
     <!-- HERO -->
     <section class="hero" style="min-height:420px;background-image:linear-gradient(135deg,rgba(15,42,74,0.92),rgba(15,42,74,0.7)),url('/assets/images/hero-bg.webp');">
