@@ -28,7 +28,22 @@ function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
 }
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active'));
+    link.addEventListener('click', (e) => {
+        // On mobile, tapping a dropdown parent toggles its submenu instead of navigating
+        if (window.innerWidth <= 768) {
+            const parent = link.parentElement;
+            if (parent.classList.contains('dropdown') || parent.classList.contains('dropdown-sub')) {
+                e.preventDefault();
+                e.stopPropagation();
+                // Close sibling open menus at the same level
+                const siblings = parent.parentElement.querySelectorAll(':scope > .open');
+                siblings.forEach(s => { if (s !== parent) s.classList.remove('open'); });
+                parent.classList.toggle('open');
+                return;
+            }
+        }
+        document.querySelector('.nav-links').classList.remove('active');
+    });
 });
 
 // --- Navbar scroll effect ---
