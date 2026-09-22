@@ -25,10 +25,29 @@
 
 // --- Mobile Menu ---
 function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+    // reset any expanded dropdowns when the panel closes
+    if (!navLinks.classList.contains('active')) {
+        navLinks.querySelectorAll('.open').forEach(li => li.classList.remove('open'));
+    }
 }
 document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('active'));
+    link.addEventListener('click', (e) => {
+        const navLinks = document.querySelector('.nav-links');
+        const isParent = link.matches('.dropdown > a, .dropdown-sub > a');
+        // On mobile, tapping a parent item expands its submenu instead of navigating.
+        if (isParent && window.matchMedia('(max-width: 768px)').matches) {
+            e.preventDefault();
+            const li = link.parentElement;
+            // collapse sibling submenus at the same level
+            li.parentElement.querySelectorAll(':scope > .open').forEach(s => { if (s !== li) s.classList.remove('open'); });
+            li.classList.toggle('open');
+            return;
+        }
+        navLinks.classList.remove('active');
+        navLinks.querySelectorAll('.open').forEach(li => li.classList.remove('open'));
+    });
 });
 
 // --- Navbar scroll effect ---
