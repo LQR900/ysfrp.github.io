@@ -3,16 +3,16 @@
 
 # ---- Shared SEO page directory (10 core products per sitemap) ----
 $allSeo = [ordered]@{
-    'frp-radome'            = @{ name='FRP Radome Antenna Cover';       url='https://ysfrp.com/frp-radome/';            image='/assets/images/radome-antenna.jpg';         short='Custom FRP fiberglass radome antenna covers for 5G, radar and satellite comms.' }
-    'fiberglass-enclosure'  = @{ name='Custom Fiberglass Enclosure';    url='https://ysfrp.com/fiberglass-enclosure/';  image='/assets/images/equipment-cabinet.jpg';      short='IP65-IP68 rated FRP equipment housings and industrial enclosures.' }
-    'custom-frp-shell'      = @{ name='Custom FRP Shell';              url='https://ysfrp.com/custom-frp-shell/';      image='/assets/images/automotive-car.jpg';        short='Custom fiberglass covers, housings and structural FRP shells.' }
-    'carbon-fiber-shell'    = @{ name='Carbon Fiber Shell (CFRP)';     url='https://ysfrp.com/carbon-fiber-shell/';    image='/assets/images/automotive-car.jpg';        short='Lightweight, high-strength carbon fiber shells and CFRP enclosures.' }
-    'usv-hull'              = @{ name='USV Fiberglass Hull';           url='https://ysfrp.com/usv-hull/';              image='/assets/images/usv-boat.jpg';              short='Custom fiberglass and carbon fiber unmanned surface vehicle hulls.' }
-    'frp-speaker-housing'   = @{ name='FRP Speaker Housing';           url='https://ysfrp.com/frp-speaker-housing/';   image='/assets/images/equipment-cabinet.jpg';      short='Fiberglass horn speaker enclosures for outdoor and marine audio.' }
-    'robot-enclosure'       = @{ name='Robot Enclosure';              url='https://ysfrp.com/robot-enclosure/';       image='/assets/images/equipment-cabinet.jpg';      short='FRP and CFRP enclosures for robotics and automation.' }
-    'frp-fan-blade'         = @{ name='FRP Fan Blade';                url='https://ysfrp.com/frp-fan-blade/';         image='/assets/images/equipment-cabinet.jpg';      short='Corrosion-resistant fiberglass fan blades and impellers.' }
-    'ev-charging-cover'     = @{ name='EV Charging Cover';            url='https://ysfrp.com/ev-charging-cover/';     image='/assets/images/automotive-car.jpg';        short='Composite enclosures for EV charging stations and cabinets.' }
-    'custom-composite-parts'= @{ name='Custom Composite Parts';       url='https://ysfrp.com/custom-composite-parts/'; image='/assets/images/equipment-cabinet.jpg';      short='Bespoke FRP and carbon fiber composite components.' }
+    'frp-radome'            = @{ name='FRP Radome Antenna Cover';       url='https://ysfrp.com/products/equipment/frp-radome/';            image='/assets/images/radome-antenna.jpg';         short='Custom FRP fiberglass radome antenna covers for 5G, radar and satellite comms.' }
+    'fiberglass-enclosure'  = @{ name='Custom Fiberglass Enclosure';    url='https://ysfrp.com/products/equipment/fiberglass-enclosure/';  image='/assets/images/equipment-cabinet.jpg';      short='IP65-IP68 rated FRP equipment housings and industrial enclosures.' }
+    'custom-frp-shell'      = @{ name='Custom FRP Shell';              url='https://ysfrp.com/products/equipment/custom-frp-shell/';      image='/assets/images/automotive-car.jpg';        short='Custom fiberglass covers, housings and structural FRP shells.' }
+    'carbon-fiber-shell'    = @{ name='Carbon Fiber Shell (CFRP)';     url='https://ysfrp.com/products/equipment/carbon-fiber-shell/';    image='/assets/images/automotive-car.jpg';        short='Lightweight, high-strength carbon fiber shells and CFRP enclosures.' }
+    'usv-hull'              = @{ name='USV Fiberglass Hull';           url='https://ysfrp.com/products/equipment/usv-hull/';              image='/assets/images/usv-boat.jpg';              short='Custom fiberglass and carbon fiber unmanned surface vehicle hulls.' }
+    'frp-speaker-housing'   = @{ name='FRP Speaker Housing';           url='https://ysfrp.com/products/equipment/frp-speaker-housing/';   image='/assets/images/equipment-cabinet.jpg';      short='Fiberglass horn speaker enclosures for outdoor and marine audio.' }
+    'robot-enclosure'       = @{ name='Robot Enclosure';              url='https://ysfrp.com/products/equipment/robot-enclosure/';       image='/assets/images/equipment-cabinet.jpg';      short='FRP and CFRP enclosures for robotics and automation.' }
+    'frp-fan-blade'         = @{ name='FRP Fan Blade';                url='https://ysfrp.com/products/equipment/frp-fan-blade/';         image='/assets/images/equipment-cabinet.jpg';      short='Corrosion-resistant fiberglass fan blades and impellers.' }
+    'ev-charging-cover'     = @{ name='EV Charging Cover';            url='https://ysfrp.com/products/equipment/ev-charging-cover/';     image='/assets/images/automotive-car.jpg';        short='Composite enclosures for EV charging stations and cabinets.' }
+    'custom-composite-parts'= @{ name='Custom Composite Parts';       url='https://ysfrp.com/products/equipment/custom-composite-parts/'; image='/assets/images/equipment-cabinet.jpg';      short='Bespoke FRP and carbon fiber composite components.' }
 }
 
 $existingCats = @(
@@ -371,7 +371,7 @@ $pages = @()
 $pages += @{
     key = 'frp-radome'
     path = 'E:\文档\ysfrp\frp-radome\index.html'
-    url = 'https://ysfrp.com/frp-radome/'
+    url = 'https://ysfrp.com/products/equipment/frp-radome/'
     title = 'Custom FRP Fiberglass Radome Manufacturer | OEM Antenna Cover Factory - YSFRP'
     metaDesc = 'Yasheng FRP is a professional custom FRP fiberglass radome manufacturer in China. OEM/ODM antenna covers for 5G, radar, satellite communications. L/S/C/X/Ku band. MOQ 1 piece, global shipping.'
     keywords = 'FRP radome manufacturer, fiberglass antenna cover OEM, 5G radome factory, radar dome supplier, custom radome manufacturer, satellite comms radome, GFRP radome, antenna cover factory'
@@ -430,7 +430,7 @@ $pages += @{
 $pages += @{
     key = 'fiberglass-enclosure'
     path = 'E:\文档\ysfrp\fiberglass-enclosure\index.html'
-    url = 'https://ysfrp.com/fiberglass-enclosure/'
+    url = 'https://ysfrp.com/products/equipment/fiberglass-enclosure/'
     title = 'Custom Fiberglass Enclosure Manufacturer | FRP Equipment Housing OEM Factory - YSFRP'
     metaDesc = 'China OEM manufacturer of custom fiberglass enclosures (FRP equipment housings). IP65-IP68 rated, corrosion-resistant, thermally stable. From prototype to mass production. MOQ 1 piece, global shipping.'
     keywords = 'fiberglass enclosure manufacturer, FRP equipment housing OEM, custom FRP enclosure, IP65 FRP enclosure, composite enclosure factory, corrosion resistant enclosure, outdoor cabinet housing'
@@ -488,7 +488,7 @@ $pages += @{
 $pages += @{
     key = 'custom-frp-shell'
     path = 'E:\文档\ysfrp\custom-frp-shell\index.html'
-    url = 'https://ysfrp.com/custom-frp-shell/'
+    url = 'https://ysfrp.com/products/equipment/custom-frp-shell/'
     title = 'Custom FRP Shell Manufacturer | Fiberglass Cover OEM Factory - YSFRP'
     metaDesc = 'Professional custom FRP shell manufacturer in China. Fiberglass covers, housings, and enclosures for any application. Full OEM/ODM service from prototype to mass production. 50+ countries served.'
     keywords = 'custom FRP shell manufacturer, fiberglass cover OEM, FRP housing factory, composite shell supplier, custom fiberglass enclosure, FRP bracket manufacturer, FRP cover OEM'
@@ -545,7 +545,7 @@ $pages += @{
 $pages += @{
     key = 'carbon-fiber-shell'
     path = 'E:\文档\ysfrp\carbon-fiber-shell\index.html'
-    url = 'https://ysfrp.com/carbon-fiber-shell/'
+    url = 'https://ysfrp.com/products/equipment/carbon-fiber-shell/'
     title = 'Custom Carbon Fiber Shell Manufacturer | CFRP Enclosure OEM Factory - YSFRP'
     metaDesc = 'China OEM manufacturer of custom carbon fiber shells (CFRP enclosures). Lightweight, high-strength carbon fiber covers for aerospace, automotive, robotics, and industrial applications. MOQ 1 piece.'
     keywords = 'carbon fiber shell manufacturer, CFRP enclosure OEM, custom carbon fiber cover, lightweight composite shell, carbon fiber housing factory, CFRP automotive panel, aerospace carbon shell'
@@ -602,7 +602,7 @@ $pages += @{
 $pages += @{
     key = 'usv-hull'
     path = 'E:\文档\ysfrp\usv-hull\index.html'
-    url = 'https://ysfrp.com/usv-hull/'
+    url = 'https://ysfrp.com/products/equipment/usv-hull/'
     title = 'Custom Fiberglass USV Hull Manufacturer | Unmanned Boat Shell OEM Factory - YSFRP'
     metaDesc = 'China OEM manufacturer of custom fiberglass and carbon fiber USV (unmanned surface vehicle) hulls. Hydrodynamic hulls for ocean survey, maritime patrol, last-mile delivery. Length 500mm-5000mm. MOQ 1.'
     keywords = 'USV hull manufacturer, unmanned surface vehicle shell, fiberglass boat hull OEM, custom USV hull, carbon fiber hull, autonomous boat shell, marine composite hull factory'

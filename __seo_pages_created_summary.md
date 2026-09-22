@@ -1,4 +1,4 @@
-# SEO Product Pages — Created Summary
+﻿# SEO Product Pages — Created Summary
 
 **Created:** 2026-09-17  
 **Manufacturer:** Dongguan Yasheng FRP Technology Co., Ltd. (YSFRP)  
@@ -10,11 +10,11 @@
 
 | # | Page File | URL Pattern | Size |
 |---|-----------|-----------|------|
-| 1 | `frp-speaker-housing/index.html` | `/frp-speaker-housing/` | ~34 KB |
-| 2 | `robot-enclosure/index.html` | `/robot-enclosure/` | ~34 KB |
-| 3 | `frp-fan-blade/index.html` | `/frp-fan-blade/` | ~34 KB |
-| 4 | `ev-charging-cover/index.html` | `/ev-charging-cover/` | ~35 KB |
-| 5 | `custom-composite-parts/index.html` | `/custom-composite-parts/` | ~36 KB |
+| 1 | `frp-speaker-housing/index.html` | `/products/equipment/frp-speaker-housing/` | ~34 KB |
+| 2 | `robot-enclosure/index.html` | `/products/equipment/robot-enclosure/` | ~34 KB |
+| 3 | `frp-fan-blade/index.html` | `/products/equipment/frp-fan-blade/` | ~34 KB |
+| 4 | `ev-charging-cover/index.html` | `/products/equipment/ev-charging-cover/` | ~35 KB |
+| 5 | `custom-composite-parts/index.html` | `/products/equipment/custom-composite-parts/` | ~36 KB |
 
 ---
 

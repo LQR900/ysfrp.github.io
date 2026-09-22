@@ -91,16 +91,16 @@
 
 | # | URL | 页面名称 | Title |
 |---|-----|---------|-------|
-| 1 | /frp-radome/ | FRP Radome Antenna Cover | Custom FRP Fiberglass Radome Manufacturer \| OEM Antenna Cover Factory - YSFRP |
-| 2 | /fiberglass-enclosure/ | Custom Fiberglass Enclosure | Custom Fiberglass Enclosure Manufacturer \| FRP Equipment Housing OEM Factory - YSFRP |
-| 3 | /custom-frp-shell/ | Custom FRP Shell | Custom FRP Shell Manufacturer \| Fiberglass Cover OEM Factory - YSFRP |
-| 4 | /carbon-fiber-shell/ | Carbon Fiber Shell | Custom Carbon Fiber Shell Manufacturer \| CFRP Enclosure OEM Factory - YSFRP |
-| 5 | /usv-hull/ | USV Fiberglass Hull | Custom Fiberglass USV Hull Manufacturer \| Unmanned Boat Shell OEM Factory - YSFRP |
-| 6 | /frp-speaker-housing/ | FRP Speaker Housing | Custom FRP Speaker Housing Manufacturer \| Fiberglass Speaker Enclosure OEM Factory - YSFRP |
-| 7 | /robot-enclosure/ | FRP Robot Enclosure | Custom FRP Robot Enclosure Manufacturer \| Industrial Robot Shell OEM Factory - YSFRP |
-| 8 | /frp-fan-blade/ | FRP Fan Blade / Impeller | Custom FRP Fan Blade & Impeller Manufacturer \| Fiberglass Fan OEM Factory - YSFRP |
-| 9 | /ev-charging-cover/ | FRP EV Charging Station Cover | Custom FRP EV Charging Station Cover \| Fiberglass EV Charger Enclosure OEM - YSFRP |
-| 10 | /custom-composite-parts/ | OEM Custom Composite Parts | Custom Composite Parts Manufacturer \| FRP & CFRP OEM Parts Factory - YSFRP |
+| 1 | /products/equipment/frp-radome/ | FRP Radome Antenna Cover | Custom FRP Fiberglass Radome Manufacturer \| OEM Antenna Cover Factory - YSFRP |
+| 2 | /products/equipment/fiberglass-enclosure/ | Custom Fiberglass Enclosure | Custom Fiberglass Enclosure Manufacturer \| FRP Equipment Housing OEM Factory - YSFRP |
+| 3 | /products/equipment/custom-frp-shell/ | Custom FRP Shell | Custom FRP Shell Manufacturer \| Fiberglass Cover OEM Factory - YSFRP |
+| 4 | /products/equipment/carbon-fiber-shell/ | Carbon Fiber Shell | Custom Carbon Fiber Shell Manufacturer \| CFRP Enclosure OEM Factory - YSFRP |
+| 5 | /products/equipment/usv-hull/ | USV Fiberglass Hull | Custom Fiberglass USV Hull Manufacturer \| Unmanned Boat Shell OEM Factory - YSFRP |
+| 6 | /products/equipment/frp-speaker-housing/ | FRP Speaker Housing | Custom FRP Speaker Housing Manufacturer \| Fiberglass Speaker Enclosure OEM Factory - YSFRP |
+| 7 | /products/equipment/robot-enclosure/ | FRP Robot Enclosure | Custom FRP Robot Enclosure Manufacturer \| Industrial Robot Shell OEM Factory - YSFRP |
+| 8 | /products/equipment/frp-fan-blade/ | FRP Fan Blade / Impeller | Custom FRP Fan Blade & Impeller Manufacturer \| Fiberglass Fan OEM Factory - YSFRP |
+| 9 | /products/equipment/ev-charging-cover/ | FRP EV Charging Station Cover | Custom FRP EV Charging Station Cover \| Fiberglass EV Charger Enclosure OEM - YSFRP |
+| 10 | /products/equipment/custom-composite-parts/ | OEM Custom Composite Parts | Custom Composite Parts Manufacturer \| FRP & CFRP OEM Parts Factory - YSFRP |
 
 每个产品页包含：
 - ✅ SEO Title（含关键词）
@@ -196,13 +196,13 @@
 ### AI搜索定位目标
 | 搜索场景 | 目标页面 | 状态 |
 |---------|---------|------|
-| "best FRP manufacturer China" | 首页 + /custom-frp-shell/ | ✅ |
-| "custom fiberglass shell OEM" | /custom-frp-shell/ | ✅ |
-| "FRP radome manufacturer" | /frp-radome/ | ✅ |
-| "USV hull supplier" | /usv-hull/ | ✅ |
-| "fiberglass enclosure factory" | /fiberglass-enclosure/ | ✅ |
-| "carbon fiber shell OEM" | /carbon-fiber-shell/ | ✅ |
-| "composite parts manufacturer" | /custom-composite-parts/ | ✅ |
+| "best FRP manufacturer China" | 首页 + /products/equipment/custom-frp-shell/ | ✅ |
+| "custom fiberglass shell OEM" | /products/equipment/custom-frp-shell/ | ✅ |
+| "FRP radome manufacturer" | /products/equipment/frp-radome/ | ✅ |
+| "USV hull supplier" | /products/equipment/usv-hull/ | ✅ |
+| "fiberglass enclosure factory" | /products/equipment/fiberglass-enclosure/ | ✅ |
+| "carbon fiber shell OEM" | /products/equipment/carbon-fiber-shell/ | ✅ |
+| "composite parts manufacturer" | /products/equipment/custom-composite-parts/ | ✅ |
 
 ---
 
@@ -273,16 +273,16 @@
   - FRP Radomes → `/products/radomes/`
   - USV Hulls → `/products/usv-hulls/`
   - **Equipment Enclosures** ▾（二级父菜单）
-    - Custom FRP Radome → `/frp-radome/`
-    - Fiberglass Enclosure → `/fiberglass-enclosure/`
-    - Custom FRP Shell → `/custom-frp-shell/`
-    - Carbon Fiber Shell → `/carbon-fiber-shell/`
-    - USV Hull → `/usv-hull/`
-    - FRP Speaker Housing → `/frp-speaker-housing/`
-    - FRP Robot Enclosure → `/robot-enclosure/`
-    - FRP Fan Blade → `/frp-fan-blade/`
-    - EV Charging Cover → `/ev-charging-cover/`
-    - Custom Composite Parts → `/custom-composite-parts/`
+    - Custom FRP Radome → `/products/equipment/frp-radome/`
+    - Fiberglass Enclosure → `/products/equipment/fiberglass-enclosure/`
+    - Custom FRP Shell → `/products/equipment/custom-frp-shell/`
+    - Carbon Fiber Shell → `/products/equipment/carbon-fiber-shell/`
+    - USV Hull → `/products/equipment/usv-hull/`
+    - FRP Speaker Housing → `/products/equipment/frp-speaker-housing/`
+    - FRP Robot Enclosure → `/products/equipment/robot-enclosure/`
+    - FRP Fan Blade → `/products/equipment/frp-fan-blade/`
+    - EV Charging Cover → `/products/equipment/ev-charging-cover/`
+    - Custom Composite Parts → `/products/equipment/custom-composite-parts/`
   - Automotive Shells → `/products/automotive/`
 - About Us / Factory / Blog / Contact Us
 
@@ -325,7 +325,7 @@
 
 | 缺陷 | 位置 | 修复 |
 |------|------|------|
-| 失效链接 `/products/carbon/` | 4个SEO页的 Related Products 卡片 | 改为 `/carbon-fiber-shell/` |
+| 失效链接 `/products/carbon/` | 4个SEO页的 Related Products 卡片 | 改为 `/products/equipment/carbon-fiber-shell/` |
 | 失效图片 `/assets/images/horn-shell (5).jpg`（路径缺 /products/ 且含空格） | 3个SEO页 | 改为 `/assets/images/products/frp-horn-shell-5.webp` |
 | 失效图片 `/assets/images/carbon-fiber-texture.jpg`（文件不存在） | products/automotive | 改用 `/assets/images/products/frp-horn-shell-6.webp` |
 | 移动端下拉菜单无法展开（既有问题） | 全站 | 新增移动端 CSS + JS 支持 |

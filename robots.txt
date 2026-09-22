@@ -17,6 +17,8 @@ Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://ysfrp.com/sitemap.xml
+Sitemap: https://ysfrp.com/sitemap-blog.xml
+Sitemap: https://ysfrp.com/sitemap-products.xml
 
 # Additional sitemaps for large sites
 # Sitemap: https://ysfrp.com/sitemap-products.xml
