@@ -62,6 +62,23 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// --- FAQ accordion toggle ---
+document.querySelectorAll('.faq-item h4').forEach(function(qh) {
+    qh.addEventListener('click', function() {
+        const isActive = qh.classList.contains('active');
+        // close all
+        document.querySelectorAll('.faq-item h4').forEach(function(h) { h.classList.remove('active'); });
+        // open clicked one unless it was already open
+        if (!isActive) qh.classList.add('active');
+    });
+    qh.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            qh.click();
+        }
+    });
+});
+
 // --- Smooth scroll ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
