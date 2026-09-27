@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <!-- Preload critical image -->
-    <link rel="preload" href="/assets/images/hero-bg.webp" as="image" type="image/webp">
+    <link rel="preload" href="/assets/images/blog-hero.webp" as="image" type="image/webp" media="(min-width:769px)">
+    <link rel="preload" href="/assets/images/blog-hero-mobile.webp" as="image" type="image/webp" media="(max-width:768px)">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | FRP & Composite Materials Industry Insights - YSFRP</title>
@@ -16,7 +17,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="Blog | FRP & Composite Materials Industry Insights - YSFRP">
     <meta property="og:description" content="Latest insights on FRP materials, fiberglass composite technology, antenna radome trends, USV hull design, and industry news.">
-    <meta property="og:image" content="https://ysfrp.com/assets/images/hero-bg.webp">
+    <meta property="og:image" content="https://ysfrp.com/assets/images/blog-hero.webp">
     <meta property="og:url" content="https://ysfrp.com/blog.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="YSFRP - Yasheng FRP">
@@ -25,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blog | FRP & Composite Materials Industry Insights - YSFRP">
     <meta name="twitter:description" content="Latest insights on FRP materials, fiberglass composite technology, antenna radome trends, USV hull design.">
-    <meta name="twitter:image" content="https://ysfrp.com/assets/images/hero-bg.webp">
+    <meta name="twitter:image" content="https://ysfrp.com/assets/images/blog-hero.webp">
     <meta name="twitter:site" content="@ysfrp">
     <meta name="twitter:creator" content="@ysfrp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +119,7 @@
 
 
     <!-- PAGE HEADER -->
-    <section class="page-header" style="background: linear-gradient(135deg, #0f2a4a 0%, #1a4066 100%); padding: 120px 0 60px; text-align: center;">
+    <section class="page-header blog-hero" style="padding: 120px 0 60px;">
         <div class="container">
             <div style="display: inline-block; background: rgba(230,126,34,0.15); border: 1px solid rgba(230,126,34,0.3); border-radius: 20px; padding: 5px 16px; margin-bottom: 16px;">
                 <span style="color: #e67e22; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-blog" style="margin-right: 6px;"></i>Insights & News</span>
@@ -138,12 +139,10 @@
                     <article>
 <!-- Featured Post -->
                     <div style="margin-bottom: 40px; background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 24px rgba(15,42,74,0.08);">
-                        <div style="display: grid; grid-template-columns: 1.2fr 1fr;">
-                            <div style="background: linear-gradient(135deg, #0f2a4a, #1a4066); min-height: 280px; display: flex; align-items: center; justify-content: center; padding: 40px;">
-                                <div style="text-align: center;">
-                                    <i class="fas fa-balance-scale" style="font-size: 64px; color: #e67e22; margin-bottom: 16px;"></i>
-                                    <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-transform: uppercase; letter-spacing: 2px;">Featured Article</div>
-                                </div>
+                        <div class="blog-featured-grid">
+                            <div class="blog-featured-img">
+                                <img src="/assets/images/blog-featured-materials.webp" alt="FRP vs Traditional Materials: A Comprehensive Comparison" loading="lazy" decoding="async">
+                                <span class="blog-featured-badge">Featured Article</span>
                             </div>
                             <div style="padding: 32px;">
                                 <div style="display: inline-block; background: #e67e22; color: #fff; border-radius: 20px; padding: 3px 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px;">Materials Science</div>
@@ -160,12 +159,10 @@
 </article>
 
                     <!-- Post Grid -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                    <div class="blog-post-grid">
 <!-- Post 2 -->
                         <div style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(15,42,74,0.06);">
-                            <div style="background: linear-gradient(135deg, #0a1929, #0f2a4a); height: 160px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-ship" style="font-size: 48px; color: #e67e22;"></i>
-                            </div>
+                            <div class="blog-thumb"><img src="/assets/images/blog-thumb-usv-hulls.webp" alt="The Rise of USV Hulls in Modern Maritime Operations" loading="lazy" decoding="async"></div>
                             <div style="padding: 24px;">
                                 <div style="display: inline-block; background: rgba(15,42,74,0.08); color: #0f2a4a; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Marine Tech</div>
                                 <h3 style="font-size: 17px; color: #1a1a2e; margin-bottom: 8px; font-family: 'Rajdhani', sans-serif; line-height: 1.3;"><a href="/blog/rise-of-usv-hulls.html" style="color: inherit; text-decoration: none;">The Rise of USV Hulls in Modern Maritime Operations</a></h3>
@@ -178,9 +175,7 @@
                         </div>
 <!-- Post 3 -->
                         <div style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(15,42,74,0.06);">
-                            <div style="background: linear-gradient(135deg, #1a3a1a, #0f4a2a); height: 160px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-shield-alt" style="font-size: 48px; color: #e67e22;"></i>
-                            </div>
+                            <div class="blog-thumb"><img src="/assets/images/blog-thumb-enclosures.webp" alt="How FRP Enclosures Protect Sensitive Equipment" loading="lazy" decoding="async"></div>
                             <div style="padding: 24px;">
                                 <div style="display: inline-block; background: rgba(15,42,74,0.08); color: #0f2a4a; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Applications</div>
                                 <h3 style="font-size: 17px; color: #1a1a2e; margin-bottom: 8px; font-family: 'Rajdhani', sans-serif; line-height: 1.3;"><a href="/blog/frp-enclosures-equipment.html" style="color: inherit; text-decoration: none;">How FRP Enclosures Protect Sensitive Equipment</a></h3>
@@ -193,9 +188,7 @@
                         </div>
 <!-- Post 4 -->
                         <div style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(15,42,74,0.06);">
-                            <div style="background: linear-gradient(135deg, #2a1a4a, #3a2060); height: 160px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-industry" style="font-size: 48px; color: #e67e22;"></i>
-                            </div>
+                            <div class="blog-thumb"><img src="/assets/images/blog-thumb-cimie.webp" alt="Yasheng FRP Exhibits at CIMIE 2026" loading="lazy" decoding="async"></div>
                             <div style="padding: 24px;">
                                 <div style="display: inline-block; background: rgba(15,42,74,0.08); color: #0f2a4a; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Company News</div>
                                 <h3 style="font-size: 17px; color: #1a1a2e; margin-bottom: 8px; font-family: 'Rajdhani', sans-serif; line-height: 1.3;"><a href="/blog/cimie-2026-exhibition.html" style="color: inherit; text-decoration: none;">Yasheng FRP Exhibits at CIMIE 2026 — Recap & Highlights</a></h3>
@@ -208,9 +201,7 @@
                         </div>
 <!-- Post 5 -->
                         <div style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(15,42,74,0.06);">
-                            <div style="background: linear-gradient(135deg, #4a1a1a, #6a2020); height: 160px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-car" style="font-size: 48px; color: #e67e22;"></i>
-                            </div>
+                            <div class="blog-thumb"><img src="/assets/images/blog-thumb-automotive.webp" alt="FRP in Automotive: Lightweighting the Next Generation" loading="lazy" decoding="async"></div>
                             <div style="padding: 24px;">
                                 <div style="display: inline-block; background: rgba(15,42,74,0.08); color: #0f2a4a; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Automotive</div>
                                 <h3 style="font-size: 17px; color: #1a1a2e; margin-bottom: 8px; font-family: 'Rajdhani', sans-serif; line-height: 1.3;"><a href="/blog/frp-automotive-trends.html" style="color: inherit; text-decoration: none;">FRP in Automotive: Lightweighting the Next Generation</a></h3>
@@ -224,9 +215,7 @@
 
                         <!-- Post 6: How to Choose FRP Radome -->
                         <div style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(15,42,74,0.06);">
-                            <div style="background: linear-gradient(135deg, #1a3a5a, #2a4a6a); height: 160px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-broadcast-tower" style="font-size: 48px; color: #e67e22;"></i>
-                            </div>
+                            <div class="blog-thumb"><img src="/assets/images/blog-thumb-radome.webp" alt="How to Choose the Right FRP Radome" loading="lazy" decoding="async"></div>
                             <div style="padding: 24px;">
                                 <div style="display: inline-block; background: rgba(15,42,74,0.08); color: #0f2a4a; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Technical Guide</div>
                                 <h3 style="font-size: 17px; color: #1a1a2e; margin-bottom: 8px; font-family: 'Rajdhani', sans-serif; line-height: 1.3;"><a href="/blog/how-to-choose-frp-radome.html" style="color: inherit; text-decoration: none;">How to Choose the Right FRP Radome</a></h3>
@@ -240,9 +229,7 @@
 
                         <!-- Post 7: FRP Manufacturing Process -->
                         <div style="background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid #e2e8f0; transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(15,42,74,0.06);">
-                            <div style="background: linear-gradient(135deg, #3a2a1a, #5a4a2a); height: 160px; display: flex; align-items: center; justify-content: center;">
-                                <i class="fas fa-cogs" style="font-size: 48px; color: #e67e22;"></i>
-                            </div>
+                            <div class="blog-thumb"><img src="/assets/images/blog-thumb-manufacturing.webp" alt="FRP Manufacturing Process: From Mold to Shell" loading="lazy" decoding="async"></div>
                             <div style="padding: 24px;">
                                 <div style="display: inline-block; background: rgba(15,42,74,0.08); color: #0f2a4a; border-radius: 20px; padding: 3px 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px;">Behind the Scenes</div>
                                 <h3 style="font-size: 17px; color: #1a1a2e; margin-bottom: 8px; font-family: 'Rajdhani', sans-serif; line-height: 1.3;"><a href="/blog/frp-manufacturing-process.html" style="color: inherit; text-decoration: none;">FRP Manufacturing Process: From Mold to Shell</a></h3>
