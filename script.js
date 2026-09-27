@@ -1,4 +1,4 @@
-// ============================================
+﻿// ============================================
 // YASHENG FRP - JavaScript v4 (EmailJS)
 // ============================================
 
@@ -49,6 +49,46 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         navLinks.querySelectorAll('.open').forEach(li => li.classList.remove('open'));
     });
 });
+
+// --- Auto-highlight current page in main nav (cross-page) ---
+function setActiveNav() {
+    var path = location.pathname;
+    if (path === '') path = '/';
+    if (/\/index\.html$/.test(path)) path = path.replace(/\/index\.html$/, '/');
+
+    // Top-level nav links (direct <a> under .nav-links > li)
+    document.querySelectorAll('.nav-links > li > a').forEach(function (a) {
+        var href = a.getAttribute('href');
+        if (!href || href.charAt(0) !== '/') { a.classList.remove('active'); return; }
+        var hp = href.split('?')[0].split('#')[0];
+        var active;
+        if (hp === '/' || hp === '/index.html') {
+            // Home: exact only (avoid matching every page)
+            active = (path === '/' || path === '/index.html');
+        } else {
+            var base = hp.replace(/\.html$/, '');
+            // exact match OR current path lives under this section directory
+            active = (path === hp) || (path.indexOf(base + '/') === 0);
+        }
+        a.classList.toggle('active', active);
+    });
+
+    // Dropdown children (highlight exact page or deeper subpages)
+    document.querySelectorAll('.dropdown-menu a, .submenu a').forEach(function (a) {
+        var href = a.getAttribute('href');
+        if (!href || href.charAt(0) !== '/') { a.classList.remove('active'); return; }
+        var hp = href.split('?')[0].split('#')[0];
+        var active = (path === hp) || (hp !== '/' && path.indexOf(hp) === 0);
+        a.classList.toggle('active', active);
+    });
+}
+setActiveNav();
+document.addEventListener('DOMContentLoaded', setActiveNav);
+if (window.history && window.history.pushState) {
+    // keep highlighting correct if URL changes without full reload
+    var _ps = window.history.pushState;
+    window.history.pushState = function () { _ps.apply(this, arguments); setActiveNav(); };
+}
 
 // --- Navbar scroll effect ---
 window.addEventListener('scroll', () => {
