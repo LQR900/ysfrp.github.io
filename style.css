@@ -46,3 +46,32 @@
 .nav-links > li > a.active::after{content:'';position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--accent);border-radius:2px;}
 .nav-links a.btn-nav.active{background:var(--accent-hover);color:#fff;}
 .nav-links a.btn-nav.active::after{display:none;}
+
+.page-header.fiberglass-enclosure-hero{
+    background-image: linear-gradient(135deg, rgba(10,26,46,0.55), rgba(26,64,102,0.45)), url('/assets/images/fiberglass-enclosure-hero.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.page-header.fiberglass-enclosure-hero .container{position:relative; z-index:2;}
+@media(max-width:768px){
+    .page-header.fiberglass-enclosure-hero{
+        background-image: linear-gradient(180deg, rgba(10,26,46,0.6), rgba(15,42,74,0.5)), url('/assets/images/fiberglass-enclosure-hero-mobile.webp');
+    }
+}
+/* custom-frp-shell Hero */
+.page-header.custom-frp-shell-hero{
+    background-image: linear-gradient(135deg, rgba(10,26,46,0.55), rgba(26,64,102,0.45)), url('/assets/images/custom-frp-shell-hero.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.page-header.custom-frp-shell-hero .container{position:relative; z-index:2;}
+@media(max-width:768px){
+    .page-header.custom-frp-shell-hero{
+        background-image: linear-gradient(180deg, rgba(10,26,46,0.6), rgba(15,42,74,0.5)), url('/assets/images/custom-frp-shell-hero-mobile.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
