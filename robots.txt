@@ -1,14 +1,24 @@
 # Robots.txt for YSFRP - FRP/Composite Manufacturing Factory
 # Optimized for Google, Bing, and AI Search Engines
-# Last Updated: 2026-07-02
+# Last Updated: 2026-09-29
 
 User-agent: *
 Allow: /
 
-# Disallow duplicate or low-value pages
-Disallow: /assets/
+# ---- 图片资源必须允许抓取 ----
+# 此前 Disallow: /assets/ 把整个图片目录对搜索引擎关闭，
+# 导致 Google 图片搜索无法索引任何产品图/工厂图。图片是外贸站的重要流量入口。
+Allow: /assets/images/
+
+# 仅排除无索引价值的静态资源
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# ---- 排除内部文件与低价值页面 ----
 Disallow: /scripts/
 Disallow: /temp/
+Disallow: /*.md$
+Disallow: /*.ps1$
 Disallow: /*.json$
 Disallow: /*?*
 
@@ -19,7 +29,3 @@ Crawl-delay: 1
 Sitemap: https://ysfrp.com/sitemap.xml
 Sitemap: https://ysfrp.com/sitemap-blog.xml
 Sitemap: https://ysfrp.com/sitemap-products.xml
-
-# Additional sitemaps for large sites
-# Sitemap: https://ysfrp.com/sitemap-products.xml
-# Sitemap: https://ysfrp.com/sitemap-blog.xml
