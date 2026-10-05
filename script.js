@@ -1,6 +1,18 @@
 ﻿// ============================================
-// YASHENG FRP - JavaScript v4 (EmailJS)
+// YASHENG FRP - JavaScript v5 (EmailJS + GA4 + spam protection)
 // ============================================
+
+// --- Page load timestamp: used by the inquiry form's time-trap spam filter ---
+var PAGE_LOADED_AT = Date.now();
+
+// --- GA4 event helper. Analytics must never break the page. ---
+function trackEvent(name, params) {
+    try {
+        if (typeof gtag === 'function') {
+            gtag('event', name, params || {});
+        }
+    } catch (err) { /* ignore */ }
+}
 
 // --- EmailJS: wait for CDN SDK to be ready before use ---
 // The SDK is loaded via <script defer> in index.html's <head>.
@@ -187,6 +199,31 @@ function handleSubmit(e) {
     const btn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('formMessage');
     const formSuccess = document.getElementById('formSuccess');
+    const formLocation = (location.pathname === '/' || /\/index\.html$/.test(location.pathname)) ? 'homepage' : 'contact_page';
+
+    // ---------- Spam protection ----------
+    // Both checks end in the same "success" state on purpose: a bot should not
+    // be able to tell that it was filtered out.
+    function blockSubmission(reason) {
+        console.warn('[Form] blocked by spam filter:', reason);
+        trackEvent('form_spam_blocked', { block_type: reason, page_path: location.pathname });
+        form.style.display = 'none';
+        if (formMessage) formMessage.style.display = 'none';
+        if (formSuccess) formSuccess.style.display = 'block';
+    }
+
+    // 1) Honeypot: a hidden field that only automated submissions fill in.
+    const honeypot = document.getElementById('website');
+    if (honeypot && honeypot.value.trim() !== '') {
+        blockSubmission('honeypot');
+        return;
+    }
+
+    // 2) Time trap: no human reads and completes this form in under 3 seconds.
+    if (Date.now() - PAGE_LOADED_AT < 3000) {
+        blockSubmission('too_fast');
+        return;
+    }
 
     // Gather form data
     const d = {
@@ -208,11 +245,22 @@ function handleSubmit(e) {
 
     if (missing.length > 0) {
         showMessage('Please fill in: ' + missing.join(', '), 'error');
+        trackEvent('form_validation_error', {
+            error_type: 'missing_required',
+            fields: missing.join(','),
+            form_location: formLocation,
+            page_path: location.pathname
+        });
         return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.from_email)) {
         showMessage('Please enter a valid email address.', 'error');
+        trackEvent('form_validation_error', {
+            error_type: 'invalid_email',
+            form_location: formLocation,
+            page_path: location.pathname
+        });
         return;
     }
 
@@ -251,6 +299,11 @@ function handleSubmit(e) {
             btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
             btn.disabled = false;
             showMessage('Form is still loading. Please try again in a moment, or email us directly: serafinalin091@gmail.com', 'error');
+            trackEvent('form_submit_error', {
+                error_type: 'sdk_unavailable',
+                form_location: formLocation,
+                page_path: location.pathname
+            });
             return;
         }
         window.emailjs.send('service_4byksa2', 'template_hmvbvfs', templateParams)
@@ -264,6 +317,15 @@ function handleSubmit(e) {
             if (formSuccess) {
                 formSuccess.style.display = 'block';
             }
+            // GA4: the single most important conversion on this site.
+            trackEvent('generate_lead', {
+                form_location: formLocation,
+                product: d.product,
+                quantity_provided: d.quantity !== 'N/A' ? 'yes' : 'no',
+                company_provided: d.company !== 'N/A' ? 'yes' : 'no',
+                phone_provided: d.phone !== 'N/A' ? 'yes' : 'no',
+                page_path: location.pathname
+            });
             // Show browser alert for confirmation
             alert('Email sent successfully! We will reply within 2 hours. Thank you!');
         }, function(error) {
@@ -272,6 +334,12 @@ function handleSubmit(e) {
             btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
             btn.disabled = false;
             showMessage('Failed to send. Please email us directly: serafinalin091@gmail.com', 'error');
+            trackEvent('form_submit_error', {
+                error_type: 'send_failed',
+                error_message: error && (error.text || error.message) ? String(error.text || error.message).slice(0, 120) : 'unknown',
+                form_location: formLocation,
+                page_path: location.pathname
+            });
         });
     });
 }
@@ -323,3 +391,48 @@ document.addEventListener('keydown', e => {
         document.querySelector('.nav-links')?.classList.remove('active');
     }
 });
+
+// ============================================
+// GA4 funnel events
+// ============================================
+
+// form_start - first interaction with the inquiry form (reveals drop-off).
+(function () {
+    var form = document.getElementById('inquiryForm');
+    if (!form) return;
+    var started = false;
+    function markStart() {
+        if (started) return;
+        started = true;
+        trackEvent('form_start', {
+            form_location: (location.pathname === '/' || /\/index\.html$/.test(location.pathname)) ? 'homepage' : 'contact_page',
+            page_path: location.pathname
+        });
+    }
+    ['input', 'focusin', 'change'].forEach(function (evt) {
+        form.addEventListener(evt, markStart);
+    });
+})();
+
+// quote_cta_click / contact_click - clicks that signal real buying intent.
+document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var text = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+    if (href.indexOf('contact.html') !== -1) {
+        trackEvent('quote_cta_click', { cta_text: text, link_url: href.slice(0, 120), page_path: location.pathname });
+        return;
+    }
+    if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp') !== -1) {
+        trackEvent('contact_click', { method: 'whatsapp', page_path: location.pathname });
+        return;
+    }
+    if (href.indexOf('mailto:') === 0) {
+        trackEvent('contact_click', { method: 'email', page_path: location.pathname });
+        return;
+    }
+    if (href.indexOf('tel:') === 0) {
+        trackEvent('contact_click', { method: 'phone', page_path: location.pathname });
+    }
+}, true);

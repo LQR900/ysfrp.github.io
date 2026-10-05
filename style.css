@@ -82,3 +82,15 @@
         background-repeat: no-repeat;
     }
 }
+
+/* Honeypot field for the inquiry forms: invisible to humans, tempting to bots.
+   Real visitors never see or fill it; automated form fillers usually do. */
+.hp-field {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+}
