@@ -14,10 +14,13 @@ function trackEvent(name, params) {
     } catch (err) { /* ignore */ }
 }
 
-// --- EmailJS: wait for CDN SDK to be ready before use ---
-// The SDK is loaded via <script defer> in index.html's <head>.
-// We set a flag when it's ready so handleSubmit() knows it's safe to call.
+// --- EmailJS: wait for the SDK to be ready before use ---
+// Only index.html and contact.html actually contain the inquiry form (form#inquiryForm).
+// Every other page loads script.js purely for the menu, scroll animations and GA4 helpers,
+// so bail out there instead of polling for 4 seconds and logging a warning.
+// We set a flag when the SDK is ready so handleSubmit() knows it's safe to call.
 (function waitForEmailJS() {
+    if (!document.getElementById('inquiryForm')) return;
     const EMAILJS_PUBLIC_KEY = 'T3oS6G5q0jXvDcxnw';
     let attempts = 0;
     function tryInit() {
