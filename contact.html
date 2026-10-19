@@ -249,7 +249,7 @@
                             <div class="form-group"><label for="email">Email Address *</label><input type="email" id="email" name="email" placeholder="john@company.com" required></div>
                             <div class="form-group"><label for="phone">Phone / WhatsApp</label><input type="text" id="phone" name="phone" placeholder="+1 234 567 8900"></div>
                         </div>
-                        <div class="form-group"><label for="product">Product Interest *</label><select id="product" name="product" required><option value="">Select a product category</option><option value="FRP Radomes">FRP Radomes</option><option value="USV Hulls">USV Hulls</option><option value="Equipment Enclosures">Equipment Enclosures</option><option value="Automotive Shells">Automotive Shells</option><option value="Custom Composite">Custom Composite Enclosure</option></select></div>
+                        <div class="form-group"><label for="product">Product Interest</label><select id="product" name="product"><option value="">Not sure yet / Please advise</option><option value="FRP Radomes">FRP Radomes</option><option value="USV Hulls">USV Hulls</option><option value="Equipment Enclosures">Equipment Enclosures</option><option value="Automotive Shells">Automotive Shells</option><option value="Custom Composite">Custom Composite Enclosure</option></select></div>
                         <div class="form-group"><label for="quantity">Estimated Quantity</label><input type="text" id="quantity" name="quantity" placeholder="e.g., 50 pcs, 200 units"></div>
                         <div class="form-group full"><label for="message">Project Details / Requirements *</label><textarea id="message" name="message" rows="5" placeholder="Describe your project: dimensions, material requirements, application, timeline, etc." required></textarea></div>
                         <div class="hp-field" aria-hidden="true">
@@ -260,6 +260,7 @@
                             <p class="form-note"><i class="fas fa-lock"></i> Your information is kept strictly confidential.</p>
                             <button type="submit" class="btn btn-primary btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Send Inquiry</button>
                         </div>
+                        <div id="formMessage" class="form-message" style="display:none;"></div>
                         <div id="formSuccess" class="form-success" style="display:none;"><i class="fas fa-check-circle"></i><h4>Message Sent Successfully!</h4><p>Thank you for your inquiry. We will reply within 2 hours during business hours.</p></div>
                     </form>
                 </div>

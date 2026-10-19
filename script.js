@@ -204,28 +204,33 @@ function handleSubmit(e) {
     const formSuccess = document.getElementById('formSuccess');
     const formLocation = (location.pathname === '/' || /\/index\.html$/.test(location.pathname)) ? 'homepage' : 'contact_page';
 
-    // ---------- Spam protection ----------
-    // Both checks end in the same "success" state on purpose: a bot should not
-    // be able to tell that it was filtered out.
-    function blockSubmission(reason) {
-        console.warn('[Form] blocked by spam filter:', reason);
-        trackEvent('form_spam_blocked', { block_type: reason, page_path: location.pathname });
-        form.style.display = 'none';
-        if (formMessage) formMessage.style.display = 'none';
-        if (formSuccess) formSuccess.style.display = 'block';
-    }
+    // ---------- Spam protection: flag, never drop ----------
+    // This used to silently discard a flagged submission while the page still
+    // showed "Sent successfully". A false positive therefore lost a real lead for
+    // good, and nobody could even tell it had happened. Every submission is now
+    // delivered, with the suspect ones stamped [POSSIBLE SPAM] so a human decides.
+    // A few junk emails a month cost far less than one lost inquiry.
+    var spamFlag = '';
 
     // 1) Honeypot: a hidden field that only automated submissions fill in.
+    // Some password managers do autofill fields named "website", which is exactly
+    // why this flags instead of blocks.
     const honeypot = document.getElementById('website');
     if (honeypot && honeypot.value.trim() !== '') {
-        blockSubmission('honeypot');
-        return;
+        spamFlag = 'honeypot';
     }
 
-    // 2) Time trap: no human reads and completes this form in under 3 seconds.
+    // 2) Time trap: no human normally reads and completes this form in under 3s.
     if (Date.now() - PAGE_LOADED_AT < 3000) {
-        blockSubmission('too_fast');
-        return;
+        spamFlag = spamFlag ? spamFlag + '+too_fast' : 'too_fast';
+    }
+
+    if (spamFlag) {
+        console.warn('[Form] delivering flagged submission:', spamFlag);
+        trackEvent('form_spam_flagged', {
+            flag_type: spamFlag,
+            page_path: location.pathname
+        });
     }
 
     // Gather form data
@@ -234,7 +239,7 @@ function handleSubmit(e) {
         company: document.getElementById('company').value.trim() || 'N/A',
         from_email: document.getElementById('email').value.trim(),
         phone: document.getElementById('phone').value.trim() || 'N/A',
-        product: document.getElementById('product').value,
+        product: document.getElementById('product').value || 'Not specified',
         quantity: document.getElementById('quantity').value.trim() || 'N/A',
         message: document.getElementById('message').value.trim()
     };
@@ -243,7 +248,6 @@ function handleSubmit(e) {
     const missing = [];
     if (!d.from_name) missing.push('Full Name');
     if (!d.from_email) missing.push('Email');
-    if (!d.product) missing.push('Product');
     if (!d.message) missing.push('Message');
 
     if (missing.length > 0) {
@@ -265,6 +269,27 @@ function handleSubmit(e) {
             page_path: location.pathname
         });
         return;
+    }
+
+    // Fallback: if EmailJS cannot send, hand the visitor a pre-filled email
+    // instead of asking them to retype everything. Most people will not retype it.
+    function buildMailto(values) {
+        var subject = 'Inquiry from ysfrp.com'
+            + (values.company && values.company !== 'N/A' ? ' - ' + values.company : '');
+        var lines = [
+            'Name: ' + values.from_name,
+            'Company: ' + values.company,
+            'Email: ' + values.from_email,
+            'Phone / WhatsApp: ' + values.phone,
+            'Product interest: ' + values.product,
+            'Estimated quantity: ' + values.quantity,
+            '',
+            'Project details:',
+            values.message
+        ];
+        return 'mailto:serafinalin091@gmail.com'
+            + '?subject=' + encodeURIComponent(subject)
+            + '&body=' + encodeURIComponent(lines.join('\n'));
     }
 
     // Show loading state
@@ -292,7 +317,8 @@ function handleSubmit(e) {
         phone: d.phone,
         product: d.product,
         quantity: d.quantity,
-        message: d.message,
+        message: (spamFlag ? '[POSSIBLE SPAM: ' + spamFlag + '] ' : '') + d.message,
+        spam_flag: spamFlag || 'clean',
         reply_to: d.from_email
     };
 
@@ -301,7 +327,7 @@ function handleSubmit(e) {
             console.error('EmailJS SDK not ready');
             btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
             btn.disabled = false;
-            showMessage('Form is still loading. Please try again in a moment, or email us directly: serafinalin091@gmail.com', 'error');
+            showErrorWithFallback('The form could not load. Please send it by email instead - your message is already written for you.', buildMailto(d));
             trackEvent('form_submit_error', {
                 error_type: 'sdk_unavailable',
                 form_location: formLocation,
@@ -336,7 +362,7 @@ function handleSubmit(e) {
             console.error('EmailJS Error:', error);
             btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Inquiry';
             btn.disabled = false;
-            showMessage('Failed to send. Please email us directly: serafinalin091@gmail.com', 'error');
+            showErrorWithFallback('Sending failed. Please send it by email instead - your message is already written for you.', buildMailto(d));
             trackEvent('form_submit_error', {
                 error_type: 'send_failed',
                 error_message: error && (error.text || error.message) ? String(error.text || error.message).slice(0, 120) : 'unknown',
@@ -353,12 +379,31 @@ function showMessage(text, type) {
     msgEl.textContent = text;
     msgEl.style.display = 'block';
     msgEl.style.cssText = type === 'error'
-        ? 'background:#fff2f2;border:1px solid #ffcdd2;color:#c62828;padding:14px 18px;border-radius:10px;margin-top:12px;font-size:14px;'
-        : 'background:#e8f5e9;border:1px solid #c8e6c9;color:#2e7d32;padding:14px 18px;border-radius:10px;margin-top:12px;font-size:14px;';
+        ? 'display:block;background:#fff2f2;border:1px solid #ffcdd2;color:#c62828;padding:14px 18px;border-radius:10px;margin-top:12px;font-size:14px;'
+        : 'display:block;background:#e8f5e9;border:1px solid #c8e6c9;color:#2e7d32;padding:14px 18px;border-radius:10px;margin-top:12px;font-size:14px;';
 
     if (type === 'error') {
         setTimeout(() => { msgEl.style.display = 'none'; }, 6000);
     }
+}
+
+// Error notice that stays on screen and offers a one-click mailto fallback.
+// Deliberately not auto-hidden: the visitor needs time to click through.
+function showErrorWithFallback(text, mailtoHref) {
+    const msgEl = document.getElementById('formMessage');
+    if (!msgEl) {
+        // Last resort: never fail silently.
+        alert(text + '\n\n' + mailtoHref);
+        return;
+    }
+    msgEl.textContent = '';
+    msgEl.style.cssText = 'display:block;background:#fff2f2;border:1px solid #ffcdd2;color:#c62828;padding:14px 18px;border-radius:10px;margin-top:12px;font-size:14px;';
+    msgEl.appendChild(document.createTextNode(text + ' '));
+    const link = document.createElement('a');
+    link.href = mailtoHref;
+    link.textContent = 'Open your email app with this message pre-filled';
+    link.style.cssText = 'display:inline-block;margin-top:6px;color:#c62828;font-weight:700;text-decoration:underline;';
+    msgEl.appendChild(link);
 }
 
 // --- Scroll reveal animations ---
