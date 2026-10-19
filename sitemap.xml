@@ -6,7 +6,7 @@
   <!-- Priority Pages - Homepage -->
   <url>
     <loc>https://ysfrp.com/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,7 +14,7 @@
   <!-- Core Product Pages -->
   <url>
     <loc>https://ysfrp.com/products.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -22,19 +22,19 @@
   <!-- Product Category Pages -->
   <url>
     <loc>https://ysfrp.com/products/radomes/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ysfrp.com/products/equipment/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ysfrp.com/products/automotive/</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -42,19 +42,19 @@
   <!-- Company Pages -->
   <url>
     <loc>https://ysfrp.com/about.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ysfrp.com/factory.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ysfrp.com/contact.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -62,7 +62,7 @@
   <!-- Case Studies -->
   <url>
     <loc>https://ysfrp.com/cases.html</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
